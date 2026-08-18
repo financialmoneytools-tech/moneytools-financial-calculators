@@ -41,13 +41,13 @@ export default async function HomePage() {
               Live Financial Snapshot
             </h2>
 
-            <div className="space-y-5">
-              <div>
-                <h3 className="text-sm font-semibold tracking-wide uppercase text-[#2d5282] mb-3">Major FX Rates (USD Base)</h3>
-                <div className="space-y-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="rounded-xl border border-slate-200 p-3.5">
+                <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">Major FX Rates (USD Base)</h3>
+                <div className="space-y-2">
                   {widgets.currencyRates.length > 0 ? (
                     widgets.currencyRates.map((row) => (
-                      <div key={row.pair} className="flex items-center justify-between text-sm">
+                      <div key={row.pair} className="flex items-center justify-between text-sm leading-tight">
                         <span className="text-slate-600">{row.pair}</span>
                         <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(row.rate, 4)}</span>
                       </div>
@@ -58,16 +58,32 @@ export default async function HomePage() {
                 </div>
               </div>
 
-              <div className="h-px bg-slate-200" />
+              <div className="rounded-xl border border-slate-200 p-3.5">
+                <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">Weather (Istanbul)</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-between leading-tight">
+                    <span className="text-slate-600">Condition</span>
+                    <span className="text-base font-bold text-[#1e3a5f]">{widgets.weather.summary}</span>
+                  </div>
+                  <div className="flex items-center justify-between leading-tight">
+                    <span className="text-slate-600">Temperature</span>
+                    <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(widgets.weather.temperatureC, 1)}°C</span>
+                  </div>
+                  <div className="flex items-center justify-between leading-tight">
+                    <span className="text-slate-600">Wind</span>
+                    <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(widgets.weather.windKmh, 1)} km/h</span>
+                  </div>
+                </div>
+              </div>
 
-              <div>
-                <h3 className="text-sm font-semibold tracking-wide uppercase text-[#2d5282] mb-3">US Market Indices</h3>
-                <div className="space-y-2.5">
+              <div className="sm:col-span-2 rounded-xl border border-slate-200 p-3.5">
+                <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">US Market Indices</h3>
+                <div className="space-y-2">
                   {widgets.marketSnapshot.length > 0 ? (
                     widgets.marketSnapshot.map((row) => {
                       const positive = row.changePct >= 0;
                       return (
-                        <div key={row.symbol} className="flex items-center justify-between text-sm">
+                        <div key={row.symbol} className="flex items-center justify-between text-sm leading-tight">
                           <span className="text-slate-600">{row.name}</span>
                           <div className="text-right">
                             <div className="text-base font-bold text-[#1e3a5f]">{formatNumber(row.price, 2)}</div>
@@ -79,28 +95,8 @@ export default async function HomePage() {
                       );
                     })
                   ) : (
-                    <p className="text-xs text-slate-500">Live market quotes are currently unavailable.</p>
+                    <p className="text-xs text-slate-500">Live market quotes are currently unavailable at the moment.</p>
                   )}
-                </div>
-              </div>
-
-              <div className="h-px bg-slate-200" />
-
-              <div>
-                <h3 className="text-sm font-semibold tracking-wide uppercase text-[#2d5282] mb-3">Weather ({widgets.weather.city})</h3>
-                <div className="space-y-2.5 text-sm">
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-600">Condition</span>
-                    <span className="text-base font-bold text-[#1e3a5f]">{widgets.weather.summary}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-600">Temperature</span>
-                    <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(widgets.weather.temperatureC, 1)}°C</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-600">Wind</span>
-                    <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(widgets.weather.windKmh, 1)} km/h</span>
-                  </div>
                 </div>
               </div>
             </div>

@@ -3,48 +3,112 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About MoneyTools',
-  description: 'Learn about MoneyTools — free financial calculators built for accuracy, transparency, and ease of use.',
+  description:
+    'Learn what MoneyTools provides, who the calculators are for, and how we approach clear and transparent financial estimation tools.',
 };
 
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-[800px] px-4 py-12">
-      <h1 className="text-3xl font-display font-bold text-[#1e3a5f] tracking-tight mb-6">About MoneyTools</h1>
+      <h1 className="mb-6 text-3xl font-display font-bold tracking-tight text-[#1e3a5f]">About MoneyTools</h1>
 
-      <div className="prose prose-slate max-w-none space-y-6 text-slate-600 leading-relaxed">
-        <p>
-          MoneyTools provides free, professional-grade financial calculators for individuals and businesses.
-          Whether you are planning an investment, comparing loan options, budgeting for a home purchase,
-          or analyzing business metrics, our tools give you clear, accurate numbers to inform your decisions.
-        </p>
+      <div className="space-y-6 leading-relaxed text-slate-600">
+        <p>Last updated: August 18, 2026</p>
 
-        <h2 className="text-xl font-semibold text-[#1e3a5f] mt-8">What We Do</h2>
-        <p>
-          We build financial calculators that are mathematically correct, transparent in their methodology,
-          and designed to be immediately useful. Every calculator shows you the formula, the assumptions,
-          and a worked example so you understand exactly how the result was produced.
-        </p>
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">1. What MoneyTools Is</h2>
+          <p>
+            MoneyTools is a free financial calculator website. It is built to help people quickly run
+            practical financial calculations and better understand how common money decisions can play out
+            under different assumptions.
+          </p>
+        </section>
 
-        <h2 className="text-xl font-semibold text-[#1e3a5f] mt-8">Who This Is For</h2>
-        <p>
-          Anyone making financial decisions: savers, borrowers, investors, students, business owners,
-          and financial professionals who need a quick calculation without opening a spreadsheet.
-        </p>
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">2. What This Website Provides</h2>
+          <p>
+            The site provides calculators across topics such as borrowing, savings, investing, mortgage,
+            business metrics, and income planning. Each tool is designed to turn user inputs into a clear
+            computed result that can be used for scenario exploration.
+          </p>
+          <p>
+            MoneyTools also includes supporting explanations so users can understand assumptions and
+            interpret outputs responsibly instead of relying on a number without context.
+          </p>
+        </section>
 
-        <h2 className="text-xl font-semibold text-[#1e3a5f] mt-8">Our Commitment</h2>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Accuracy:</strong> Every calculation engine is unit-tested against independently verified expected values.</li>
-          <li><strong>Transparency:</strong> All formulas and assumptions are documented on each calculator page and in our <Link href="/methodology" className="text-[#3182ce] hover:underline">methodology</Link>.</li>
-          <li><strong>Privacy:</strong> Calculations run entirely in your browser. No financial data is stored, transmitted, or shared.</li>
-          <li><strong>Free access:</strong> All tools are free, with no account required.</li>
-        </ul>
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">3. Who the Calculators Are Designed For</h2>
+          <p>
+            MoneyTools is intended for a broad audience, including students, households, borrowers,
+            savers, investors, founders, operators, and anyone who wants quick, structured financial
+            estimates without building their own spreadsheet from scratch.
+          </p>
+        </section>
 
-        <h2 className="text-xl font-semibold text-[#1e3a5f] mt-8">Important Note</h2>
-        <p>
-          MoneyTools provides educational estimates. Results should not be treated as financial advice.
-          Please consult a qualified financial professional before making significant financial decisions.
-          See our <Link href="/disclaimer" className="text-[#3182ce] hover:underline">disclaimer</Link> for full details.
-        </p>
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">4. Why the Calculators Are Free</h2>
+          <p>
+            The goal is to make financial estimation tools widely accessible. Free calculators help more
+            people evaluate options, compare scenarios, and prepare better questions before making
+            meaningful financial decisions.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">5. Our Approach</h2>
+          <p>
+            MoneyTools focuses on clarity, transparency, and practical usefulness. Outputs are presented in
+            straightforward language and formatting, with calculator-specific methodology details documented
+            in the product.
+          </p>
+          <p>
+            Calculator results are estimates generated from user inputs, calculator logic, and stated
+            assumptions. They are intended for informational and educational use.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">6. Accuracy and Methodology</h2>
+          <p>
+            Different calculators use different formulas and assumptions based on the type of problem being
+            modeled. For details about how inputs, formulas, assumptions, rounding, and limitations are
+            handled, please review the{' '}
+            <Link href="/methodology" className="text-[#3182ce] hover:underline">
+              Methodology page
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">7. Related Policies and Important Notices</h2>
+          <p>
+            To understand how information is handled, what limitations apply, and how to use the website
+            responsibly, please review:
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              <Link href="/privacy" className="text-[#3182ce] hover:underline">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link href="/disclaimer" className="text-[#3182ce] hover:underline">
+                Disclaimer
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">8. Transparency and Continuous Improvement</h2>
+          <p>
+            MoneyTools aims to keep trust pages aligned with the live implementation. As calculators,
+            integrations, or policies evolve, these pages should be reviewed and updated so they remain
+            accurate, clear, and useful.
+          </p>
+        </section>
       </div>
     </div>
   );

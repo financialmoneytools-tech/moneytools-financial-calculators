@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { categories, getFeaturedCalculators, getCalculatorsByCategory } from '@/data/registry';
 import { TrendingUp, Landmark, Home, PiggyBank, Briefcase, DollarSign, ArrowRight, Shield, BookOpen, Lock, Calculator } from 'lucide-react';
 import { SearchBox } from './search-box';
+import { formatNumber, formatPercent } from '@/lib/utils/formatters';
+import { getHomepageWidgetsData } from '@/lib/homepage-widgets';
 
 const iconMap: Record<string, React.ReactNode> = {
   TrendingUp: <TrendingUp className="h-6 w-6" />,
@@ -12,8 +14,9 @@ const iconMap: Record<string, React.ReactNode> = {
   DollarSign: <DollarSign className="h-6 w-6" />,
 };
 
-export default function HomePage() {
+export default async function HomePage() {
   const featured = getFeaturedCalculators();
+  const widgets = await getHomepageWidgetsData();
 
   return (
     <div>
@@ -72,6 +75,71 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* Live Financial Snapshot */}
+      <section className="mx-auto max-w-[1200px] px-4 mt-16">
+        <h2 className="text-2xl font-display font-bold text-[#1e3a5f] mb-6">Live Financial Snapshot</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-sm)' }}>
+            <h3 className="text-sm font-semibold text-[#1e3a5f] mb-3">Major FX Rates (USD Base)</h3>
+            <div className="space-y-2">
+              {widgets.currencyRates.length > 0 ? (
+                widgets.currencyRates.map((row) => (
+                  <div key={row.pair} className="flex items-center justify-between text-sm">
+                    <span className="text-slate-500">{row.pair}</span>
+                    <span className="font-medium text-[#1e3a5f]">{formatNumber(row.rate, 4)}</span>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-slate-500">Exchange rate feed is temporarily unavailable.</p>
+              )}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-sm)' }}>
+            <h3 className="text-sm font-semibold text-[#1e3a5f] mb-3">US Market Indices</h3>
+            <div className="space-y-2">
+              {widgets.marketSnapshot.length > 0 ? (
+                widgets.marketSnapshot.map((row) => {
+                  const positive = row.changePct >= 0;
+                  return (
+                    <div key={row.symbol} className="flex items-center justify-between text-sm">
+                      <span className="text-slate-500">{row.name}</span>
+                      <div className="text-right">
+                        <div className="font-medium text-[#1e3a5f]">{formatNumber(row.price, 2)}</div>
+                        <div className={positive ? 'text-emerald-600 text-xs' : 'text-red-600 text-xs'}>
+                          {positive ? '+' : ''}{formatPercent(row.changePct, 2)}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <p className="text-sm text-slate-500">Market feed is temporarily unavailable.</p>
+              )}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-sm)' }}>
+            <h3 className="text-sm font-semibold text-[#1e3a5f] mb-3">Weather ({widgets.weather.city})</h3>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-500">Condition</span>
+                <span className="font-medium text-[#1e3a5f]">{widgets.weather.summary}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-500">Temperature</span>
+                <span className="font-medium text-[#1e3a5f]">{formatNumber(widgets.weather.temperatureC, 1)}°C</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-500">Wind</span>
+                <span className="font-medium text-[#1e3a5f]">{formatNumber(widgets.weather.windKmh, 1)} km/h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p className="text-xs text-slate-400 mt-3">Data sources: Open Exchange Rates API mirror (open.er-api.com), Yahoo Finance quote API, Open-Meteo.</p>
       </section>
 
       {/* How it works */}

@@ -20,21 +20,100 @@ export default async function HomePage() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1e3a5f] to-[#2d5282] text-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1200px] px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4">
-            Free Financial Calculators
-          </h1>
-          <p className="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-            Fast, accurate, and easy to use. Make smarter financial decisions with professional-grade tools.
-          </p>
-          <SearchBox />
+      {/* Hero + Live Snapshot */}
+      <section className="bg-gradient-to-br from-[#1e3a5f] to-[#2d5282] text-white py-14 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="lg:col-span-7">
+            <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4">
+              Free Financial Calculators
+            </h1>
+            <p className="text-lg md:text-xl text-blue-100 max-w-2xl mb-8">
+              Fast, accurate, and easy to use. Make smarter financial decisions with professional-grade tools.
+            </p>
+            <SearchBox />
+          </div>
+
+          <aside
+            className="lg:col-span-5 rounded-2xl border border-blue-200/40 bg-white/95 backdrop-blur p-5 md:p-6 text-slate-900"
+            style={{ boxShadow: 'var(--shadow-lg)' }}
+          >
+            <h2 className="text-2xl md:text-[1.75rem] leading-tight font-display font-bold text-[#1e3a5f] mb-5">
+              Live Financial Snapshot
+            </h2>
+
+            <div className="space-y-5">
+              <div>
+                <h3 className="text-sm font-semibold tracking-wide uppercase text-[#2d5282] mb-3">Major FX Rates (USD Base)</h3>
+                <div className="space-y-2.5">
+                  {widgets.currencyRates.length > 0 ? (
+                    widgets.currencyRates.map((row) => (
+                      <div key={row.pair} className="flex items-center justify-between text-sm">
+                        <span className="text-slate-600">{row.pair}</span>
+                        <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(row.rate, 4)}</span>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-xs text-slate-500">Exchange rates are temporarily unavailable.</p>
+                  )}
+                </div>
+              </div>
+
+              <div className="h-px bg-slate-200" />
+
+              <div>
+                <h3 className="text-sm font-semibold tracking-wide uppercase text-[#2d5282] mb-3">US Market Indices</h3>
+                <div className="space-y-2.5">
+                  {widgets.marketSnapshot.length > 0 ? (
+                    widgets.marketSnapshot.map((row) => {
+                      const positive = row.changePct >= 0;
+                      return (
+                        <div key={row.symbol} className="flex items-center justify-between text-sm">
+                          <span className="text-slate-600">{row.name}</span>
+                          <div className="text-right">
+                            <div className="text-base font-bold text-[#1e3a5f]">{formatNumber(row.price, 2)}</div>
+                            <div className={positive ? 'text-emerald-600 text-xs font-semibold' : 'text-red-600 text-xs font-semibold'}>
+                              {positive ? '+' : ''}{formatPercent(row.changePct, 2)}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <p className="text-xs text-slate-500">Live market quotes are currently unavailable.</p>
+                  )}
+                </div>
+              </div>
+
+              <div className="h-px bg-slate-200" />
+
+              <div>
+                <h3 className="text-sm font-semibold tracking-wide uppercase text-[#2d5282] mb-3">Weather ({widgets.weather.city})</h3>
+                <div className="space-y-2.5 text-sm">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-600">Condition</span>
+                    <span className="text-base font-bold text-[#1e3a5f]">{widgets.weather.summary}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-600">Temperature</span>
+                    <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(widgets.weather.temperatureC, 1)}°C</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-600">Wind</span>
+                    <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(widgets.weather.windKmh, 1)} km/h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-[11px] text-slate-400 mt-5">
+              Data sources: Open Exchange Rates API mirror (open.er-api.com), Yahoo Finance quote API, Open-Meteo.
+            </p>
+          </aside>
         </div>
       </section>
 
       {/* Category Grid */}
-      <section className="mx-auto max-w-[1200px] px-4 -mt-8">
+      <section className="mx-auto max-w-[1200px] px-4 mt-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {(categories ?? []).map((cat) => {
             const count = getCalculatorsByCategory(cat.slug)?.length ?? 0;
@@ -75,71 +154,6 @@ export default async function HomePage() {
             </Link>
           ))}
         </div>
-      </section>
-
-      {/* Live Financial Snapshot */}
-      <section className="mx-auto max-w-[1200px] px-4 mt-16">
-        <h2 className="text-2xl font-display font-bold text-[#1e3a5f] mb-6">Live Financial Snapshot</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-sm)' }}>
-            <h3 className="text-sm font-semibold text-[#1e3a5f] mb-3">Major FX Rates (USD Base)</h3>
-            <div className="space-y-2">
-              {widgets.currencyRates.length > 0 ? (
-                widgets.currencyRates.map((row) => (
-                  <div key={row.pair} className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">{row.pair}</span>
-                    <span className="font-medium text-[#1e3a5f]">{formatNumber(row.rate, 4)}</span>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-500">Exchange rate feed is temporarily unavailable.</p>
-              )}
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-sm)' }}>
-            <h3 className="text-sm font-semibold text-[#1e3a5f] mb-3">US Market Indices</h3>
-            <div className="space-y-2">
-              {widgets.marketSnapshot.length > 0 ? (
-                widgets.marketSnapshot.map((row) => {
-                  const positive = row.changePct >= 0;
-                  return (
-                    <div key={row.symbol} className="flex items-center justify-between text-sm">
-                      <span className="text-slate-500">{row.name}</span>
-                      <div className="text-right">
-                        <div className="font-medium text-[#1e3a5f]">{formatNumber(row.price, 2)}</div>
-                        <div className={positive ? 'text-emerald-600 text-xs' : 'text-red-600 text-xs'}>
-                          {positive ? '+' : ''}{formatPercent(row.changePct, 2)}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })
-              ) : (
-                <p className="text-sm text-slate-500">Market feed is temporarily unavailable.</p>
-              )}
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-sm)' }}>
-            <h3 className="text-sm font-semibold text-[#1e3a5f] mb-3">Weather ({widgets.weather.city})</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center justify-between">
-                <span className="text-slate-500">Condition</span>
-                <span className="font-medium text-[#1e3a5f]">{widgets.weather.summary}</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-slate-500">Temperature</span>
-                <span className="font-medium text-[#1e3a5f]">{formatNumber(widgets.weather.temperatureC, 1)}°C</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-slate-500">Wind</span>
-                <span className="font-medium text-[#1e3a5f]">{formatNumber(widgets.weather.windKmh, 1)} km/h</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p className="text-xs text-slate-400 mt-3">Data sources: Open Exchange Rates API mirror (open.er-api.com), Yahoo Finance quote API, Open-Meteo.</p>
       </section>
 
       {/* How it works */}

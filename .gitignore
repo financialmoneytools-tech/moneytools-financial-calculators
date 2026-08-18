@@ -15,3 +15,7 @@ package.json.backup
 .yarnrc.yml.backup
 
 tsconfig.tsbuildinfo
+
+*.backup
+*.bak
+*.orig

@@ -42,54 +42,65 @@ export default async function HomePage() {
             style={{ boxShadow: 'var(--shadow-lg)' }}
           >
             <h2 className="text-2xl md:text-[1.75rem] leading-tight font-display font-bold text-[#1e3a5f] mb-5">
-              Live Financial Snapshot
+              Currency Reference Rates
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="rounded-xl border border-slate-200 p-3.5">
-                <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">Major FX Rates (USD Base)</h3>
+                <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">ECB Reference Rates</h3>
                 <div className="space-y-2">
-                  {widgets.currencyRates.length > 0 ? (
-                    widgets.currencyRates.map((row) => (
-                      <div key={row.pair} className="flex items-center justify-between text-sm leading-tight">
-                        <span className="text-slate-600">{row.pair}</span>
-                        <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(row.rate, 4)}</span>
+                  {widgets.currency ? (
+                    widgets.currency.pairs.map((row) => (
+                      <div key={row.label} className="flex items-center justify-between text-sm leading-tight">
+                        <span className="text-slate-600">{row.label}</span>
+                        <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(row.rate, row.rate >= 100 ? 2 : 4)}</span>
                       </div>
                     ))
                   ) : (
-                    <p className="text-xs text-slate-500">Exchange rates are temporarily unavailable.</p>
+                    <p className="text-xs text-slate-500">Reference rates are temporarily unavailable.</p>
                   )}
                 </div>
+                {widgets.currency && (
+                  <p className="text-[11px] text-slate-400 mt-3">Published {widgets.currency.date}</p>
+                )}
               </div>
 
               <div className="rounded-xl border border-slate-200 p-3.5">
-                <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">US Market Indices</h3>
+                <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">30-Day Change</h3>
                 <div className="space-y-2">
-                  {widgets.marketSnapshot.length > 0 ? (
-                    widgets.marketSnapshot.map((row) => {
-                      const positive = row.changePct >= 0;
-                      return (
-                        <div key={row.symbol} className="flex items-center justify-between text-sm leading-tight">
-                          <span className="text-slate-600">{row.name}</span>
-                          <div className="text-right">
-                            <div className="text-base font-bold text-[#1e3a5f]">{formatNumber(row.price, 2)}</div>
-                            <div className={positive ? 'text-emerald-600 text-xs font-semibold' : 'text-red-600 text-xs font-semibold'}>
-                              {positive ? '+' : ''}{formatPercent(row.changePct, 2)} vs. open
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })
+                  {widgets.indicators ? (
+                    widgets.indicators.indicators.map((row) => (
+                      <div key={row.label} className="flex items-center justify-between text-sm leading-tight">
+                        <span className="text-slate-600">{row.label}</span>
+                        <span
+                          className={
+                            row.direction === 'up'
+                              ? 'text-base font-bold text-emerald-600'
+                              : row.direction === 'down'
+                                ? 'text-base font-bold text-red-600'
+                                : 'text-base font-bold text-slate-500'
+                          }
+                        >
+                          {row.direction === 'up' ? '\u25B2 +' : row.direction === 'down' ? '\u25BC ' : '\u25AC '}
+                          {formatPercent(row.changePercent, 2)}
+                        </span>
+                      </div>
+                    ))
                   ) : (
-                    <p className="text-xs text-slate-500">Index quotes are temporarily unavailable.</p>
+                    <p className="text-xs text-slate-500">Trend data is temporarily unavailable.</p>
                   )}
                 </div>
+                {widgets.indicators && (
+                  <p className="text-[11px] text-slate-400 mt-3">
+                    {widgets.indicators.comparisonDate} to {widgets.indicators.currentDate}
+                  </p>
+                )}
               </div>
             </div>
 
             <p className="text-[11px] text-slate-400 mt-5">
-              Indicative data only, refreshed roughly every 15 minutes and not suitable for trading.
-              Sources: open.er-api.com (FX) and Stooq (index quotes, delayed).
+              European Central Bank euro reference rates via Frankfurter, published once each business
+              day. Shown for reference only, not as live market prices, and not suitable for trading.
             </p>
           </aside>
         </div>

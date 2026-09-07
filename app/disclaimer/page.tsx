@@ -67,25 +67,24 @@ export default function DisclaimerPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">Third-Party Services and Data</h2>
           <p>
-            The homepage Live Financial Snapshot uses third-party data sources, including:
+            The homepage currency panel uses one third-party data source:
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              Foreign exchange rates from <code>open.er-api.com</code>
-            </li>
-            <li>
-              Market data from the Yahoo Finance quote API (<code>query1.finance.yahoo.com</code>)
-            </li>
-            <li>
-              Weather data from <code>api.open-meteo.com</code>
+              European Central Bank euro foreign exchange reference rates, retrieved via{' '}
+              <code>api.frankfurter.dev</code>
             </li>
           </ul>
           <p>
-            Third-party data may be delayed, unavailable, incomplete, or inaccurate. MoneyTools does not
-            guarantee the accuracy, completeness, timeliness, or availability of third-party data.
+            These are reference rates published once each business day, not live market prices. They are
+            shown for general information only and are not suitable for trading, settlement, accounting,
+            or any transaction where an exact rate matters.
           </p>
           <p>
-            Live market, weather, and currency information is provided for informational purposes only.
+            Third-party data may be delayed, unavailable, incomplete, or inaccurate. MoneyTools does not
+            guarantee the accuracy, completeness, timeliness, or availability of third-party data. When
+            the source is unavailable the panel says so rather than showing an estimated or previously
+            cached value.
           </p>
         </section>
 

@@ -109,23 +109,28 @@ export default function MethodologyPage() {
             MoneyTools calculator math is separate from the homepage Live Financial Snapshot.
           </p>
           <p>
-            The Live Financial Snapshot displays third-party data feeds (currency rates, market quotes,
-            and weather). These feeds are not the core mathematical methodology of the calculators.
+            The homepage currency panel displays a third-party data feed. It is not part of the core
+            mathematical methodology of the calculators, and no calculator uses it as an input.
           </p>
           <p>
-            Third-party snapshot sources in the current implementation are:
+            The single third-party source in the current implementation is:
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              <code>open.er-api.com</code> (foreign exchange rates)
-            </li>
-            <li>
-              Yahoo Finance quote API at <code>query1.finance.yahoo.com</code> (market data)
-            </li>
-            <li>
-              <code>api.open-meteo.com</code> (weather data)
+              <code>api.frankfurter.dev</code>, which serves the European Central Bank euro foreign
+              exchange reference rates
             </li>
           </ul>
+          <p>
+            These are daily reference rates published by the ECB once each business day, not live
+            market prices. Cross rates such as GBP/USD are derived arithmetically from the published
+            euro-based table. The 30-day change figures are calculated from two published reference-rate
+            tables and are not sourced from any separate provider.
+          </p>
+          <p>
+            The homepage displays no equity index, stock, or commodity prices. Such data is licensed by
+            the originating exchanges and is not shown here.
+          </p>
         </section>
 
         <section className="space-y-2">

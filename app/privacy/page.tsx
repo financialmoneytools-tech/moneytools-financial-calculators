@@ -70,23 +70,19 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">5. Third-Party Services and Data Sources</h2>
           <p>
-            <strong>Currently:</strong> The homepage Live Financial Snapshot retrieves data from the
-            following third-party sources:
+            <strong>Currently:</strong> The homepage currency panel retrieves data from one third-party
+            source:
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              <code>open.er-api.com</code> for USD-based foreign exchange rates
-            </li>
-            <li>
-              <code>query1.finance.yahoo.com</code> for US market index quotes
-            </li>
-            <li>
-              <code>api.open-meteo.com</code> for Istanbul weather data
+              <code>api.frankfurter.dev</code>, for European Central Bank euro foreign exchange
+              reference rates
             </li>
           </ul>
           <p>
-            These services may receive technical request information as part of normal web and API
-            traffic needed to provide this data.
+            This request is made by our servers, not by your browser, and the response is cached and
+            shared across all visitors. The provider therefore does not receive your IP address, your
+            browser details, or any other information about you when you view the homepage.
           </p>
           <p>
             <strong>If providers or data sources change in the future:</strong> This list will be revised to
@@ -97,16 +93,8 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">6. External Scripts</h2>
           <p>
-            <strong>Currently:</strong> The site loads the following external script:
-          </p>
-          <ul className="list-disc space-y-1 pl-6">
-            <li>
-              <code>https://apps.abacus.ai/chatllm/appllm-lib.js</code>
-            </li>
-          </ul>
-          <p>
-            External script providers may process technical request data necessary to deliver script
-            assets.
+            <strong>Currently:</strong> The site loads no third-party scripts. All JavaScript served to
+            your browser originates from this site&rsquo;s own domain.
           </p>
           <p>
             <strong>If additional scripts are added in the future:</strong> They will be documented in this

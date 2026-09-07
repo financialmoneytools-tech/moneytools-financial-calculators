@@ -78,13 +78,13 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">8. Third-Party Data Sources and Services</h2>
           <p>
-            Certain homepage snapshot data is sourced from third-party services, including currency rates,
-            market data, and weather APIs. Third-party data may be delayed, incomplete, unavailable, or
-            inaccurate, and may change without notice.
+            The homepage currency panel is sourced from a third-party service. Third-party data may be
+            delayed, incomplete, unavailable, or inaccurate, and may change without notice.
           </p>
           <p>
-            Current integrations include <code>open.er-api.com</code>,{' '}
-            <code>query1.finance.yahoo.com</code>, and <code>api.open-meteo.com</code>.
+            The current integration is <code>api.frankfurter.dev</code>, which serves European Central
+            Bank euro foreign exchange reference rates. These are daily reference rates, not live market
+            prices, and must not be relied upon for trading or settlement.
           </p>
         </section>
 

@@ -5,6 +5,10 @@ import { SearchBox } from './search-box';
 import { formatNumber, formatPercent } from '@/lib/utils/formatters';
 import { getHomepageWidgetsData } from '@/lib/homepage-widgets';
 
+// Incrementally re-rendered: the snapshot refreshes at most every 15 minutes,
+// so visitors are served a cached page instead of triggering upstream calls.
+export const revalidate = 900;
+
 const iconMap: Record<string, React.ReactNode> = {
   TrendingUp: <TrendingUp className="h-6 w-6" />,
   Landmark: <Landmark className="h-6 w-6" />,
@@ -59,24 +63,6 @@ export default async function HomePage() {
               </div>
 
               <div className="rounded-xl border border-slate-200 p-3.5">
-                <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">Weather (Istanbul)</h3>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center justify-between leading-tight">
-                    <span className="text-slate-600">Condition</span>
-                    <span className="text-base font-bold text-[#1e3a5f]">{widgets.weather.summary}</span>
-                  </div>
-                  <div className="flex items-center justify-between leading-tight">
-                    <span className="text-slate-600">Temperature</span>
-                    <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(widgets.weather.temperatureC, 1)}°C</span>
-                  </div>
-                  <div className="flex items-center justify-between leading-tight">
-                    <span className="text-slate-600">Wind</span>
-                    <span className="text-base font-bold text-[#1e3a5f]">{formatNumber(widgets.weather.windKmh, 1)} km/h</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="sm:col-span-2 rounded-xl border border-slate-200 p-3.5">
                 <h3 className="text-xs font-bold tracking-wide uppercase text-[#2d5282] mb-2.5">US Market Indices</h3>
                 <div className="space-y-2">
                   {widgets.marketSnapshot.length > 0 ? (
@@ -88,21 +74,22 @@ export default async function HomePage() {
                           <div className="text-right">
                             <div className="text-base font-bold text-[#1e3a5f]">{formatNumber(row.price, 2)}</div>
                             <div className={positive ? 'text-emerald-600 text-xs font-semibold' : 'text-red-600 text-xs font-semibold'}>
-                              {positive ? '+' : ''}{formatPercent(row.changePct, 2)}
+                              {positive ? '+' : ''}{formatPercent(row.changePct, 2)} vs. open
                             </div>
                           </div>
                         </div>
                       );
                     })
                   ) : (
-                    <p className="text-xs text-slate-500">Live market quotes are currently unavailable at the moment.</p>
+                    <p className="text-xs text-slate-500">Index quotes are temporarily unavailable.</p>
                   )}
                 </div>
               </div>
             </div>
 
             <p className="text-[11px] text-slate-400 mt-5">
-              Data sources: Open Exchange Rates API mirror (open.er-api.com), Yahoo Finance quote API, Open-Meteo.
+              Indicative data only, refreshed roughly every 15 minutes and not suitable for trading.
+              Sources: open.er-api.com (FX) and Stooq (index quotes, delayed).
             </p>
           </aside>
         </div>

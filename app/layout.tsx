@@ -7,8 +7,6 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import type { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
-
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' });
 const jakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-display' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
@@ -34,9 +32,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script src="https://apps.abacus.ai/chatllm/appllm-lib.js" />
-      </head>
       <body className={`${dmSans.variable} ${jakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">

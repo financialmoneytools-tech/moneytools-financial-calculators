@@ -1,57 +1,67 @@
-type CurrencyCode = 'EUR' | 'GBP' | 'TRY';
+/**
+ * Homepage "Live Financial Snapshot" data sources.
+ *
+ * Both sources are public, free, and require no API key or secret:
+ *   - FX rates: open.er-api.com (open access endpoint of ExchangeRate-API)
+ *   - Index quotes: stooq.com CSV endpoint (end-of-day / delayed intraday)
+ *
+ * Every fetch fails closed: on any network, status, or parse error the helper
+ * returns an empty list and the UI renders an honest "unavailable" message.
+ * No value is ever fabricated, estimated, or carried over from a stale render.
+ */
+
+type CurrencyCode = 'EUR' | 'GBP' | 'JPY' | 'TRY';
 
 type CurrencyRatesApi = {
   result?: string;
+  time_last_update_unix?: number;
   rates?: Record<string, number>;
 };
 
-type YahooQuoteApi = {
-  quoteResponse?: {
-    result?: Array<{
-      symbol?: string;
-      shortName?: string;
-      regularMarketPrice?: number;
-      regularMarketChangePercent?: number;
-    }>;
-  };
+export type CurrencyRateRow = {
+  pair: string;
+  rate: number;
 };
 
-type OpenMeteoApi = {
-  current?: {
-    temperature_2m?: number;
-    weather_code?: number;
-    wind_speed_10m?: number;
-  };
+export type MarketRow = {
+  symbol: string;
+  name: string;
+  price: number;
+  changePct: number;
+  asOf: string;
 };
 
 export type HomepageWidgetsData = {
-  currencyRates: Array<{ pair: string; rate: number }>;
-  marketSnapshot: Array<{ symbol: string; name: string; price: number; changePct: number }>;
-  weather: { city: string; temperatureC: number; windKmh: number; summary: string };
+  currencyRates: CurrencyRateRow[];
+  marketSnapshot: MarketRow[];
 };
 
-const MARKET_SYMBOLS = ['^GSPC', '^DJI', '^IXIC'];
-const MARKET_NAME_FALLBACK: Record<string, string> = {
-  '^GSPC': 'S&P 500',
-  '^DJI': 'Dow Jones',
-  '^IXIC': 'Nasdaq',
+const REQUEST_HEADERS = {
+  'User-Agent': 'MoneyTools/1.0 (+https://moneytools.com)',
+  Accept: 'text/plain,application/json;q=0.9,*/*;q=0.8',
 };
 
-function weatherCodeToText(code: number): string {
-  if (code === 0) return 'Clear';
-  if ([1, 2, 3].includes(code)) return 'Partly Cloudy';
-  if ([45, 48].includes(code)) return 'Fog';
-  if ([51, 53, 55, 56, 57].includes(code)) return 'Drizzle';
-  if ([61, 63, 65, 66, 67].includes(code)) return 'Rain';
-  if ([71, 73, 75, 77].includes(code)) return 'Snow';
-  if ([80, 81, 82].includes(code)) return 'Showers';
-  if ([95, 96, 99].includes(code)) return 'Thunderstorm';
-  return 'Variable';
+const WANTED_CURRENCIES: CurrencyCode[] = ['EUR', 'GBP', 'JPY', 'TRY'];
+
+/** Stooq index tickers, in display order. */
+const MARKET_SYMBOLS: Array<{ ticker: string; name: string }> = [
+  { ticker: '^spx', name: 'S&P 500' },
+  { ticker: '^dji', name: 'Dow Jones' },
+  { ticker: '^ndq', name: 'Nasdaq Composite' },
+];
+
+function toFiniteNumber(raw: string | undefined): number | null {
+  if (!raw) return null;
+  const trimmed = raw.trim();
+  if (!trimmed || trimmed === 'N/D') return null;
+  const value = Number(trimmed);
+  return Number.isFinite(value) ? value : null;
 }
 
-async function fetchCurrencyRates(): Promise<Array<{ pair: string; rate: number }>> {
+async function fetchCurrencyRates(): Promise<CurrencyRateRow[]> {
   try {
     const response = await fetch('https://open.er-api.com/v6/latest/USD', {
+      headers: REQUEST_HEADERS,
       next: { revalidate: 1800 },
     });
 
@@ -60,89 +70,80 @@ async function fetchCurrencyRates(): Promise<Array<{ pair: string; rate: number 
     const data = (await response.json()) as CurrencyRatesApi;
     if (data.result !== 'success' || !data.rates) return [];
 
-    const wanted: CurrencyCode[] = ['EUR', 'GBP', 'TRY'];
-    return wanted
-      .map((code) => ({ pair: `USD/${code}`, rate: data.rates?.[code] ?? 0 }))
-      .filter((item) => item.rate > 0);
+    return WANTED_CURRENCIES.map((code) => ({
+      pair: `USD/${code}`,
+      rate: data.rates?.[code] ?? 0,
+    })).filter((row) => row.rate > 0);
   } catch {
     return [];
   }
 }
 
-async function fetchMarketSnapshot(): Promise<Array<{ symbol: string; name: string; price: number; changePct: number }>> {
+/**
+ * Stooq returns one CSV row per ticker:
+ *   Symbol,Date,Time,Open,High,Low,Close
+ *   ^SPX,2026-09-05,22:15:00,6500.12,6521.44,6488.90,6510.31
+ *
+ * Unavailable fields come back as "N/D" and are dropped rather than guessed.
+ * changePct is measured against the session open, which is the only comparison
+ * this endpoint actually supports — it is labelled as such in the UI.
+ */
+function parseStooqCsv(csv: string): MarketRow[] {
+  const lines = csv.trim().split(/\r?\n/);
+  if (lines.length < 2) return [];
+
+  const rows: MarketRow[] = [];
+
+  for (const line of lines.slice(1)) {
+    const cells = line.split(',');
+    if (cells.length < 7) continue;
+
+    const ticker = cells[0]?.trim().toLowerCase();
+    const known = MARKET_SYMBOLS.find((entry) => entry.ticker === ticker);
+    if (!known) continue;
+
+    const open = toFiniteNumber(cells[3]);
+    const close = toFiniteNumber(cells[6]);
+    if (open === null || close === null || open <= 0 || close <= 0) continue;
+
+    const date = cells[1]?.trim();
+    const time = cells[2]?.trim();
+
+    rows.push({
+      symbol: known.ticker,
+      name: known.name,
+      price: close,
+      changePct: ((close - open) / open) * 100,
+      asOf: date && date !== 'N/D' ? `${date}${time && time !== 'N/D' ? ` ${time}` : ''}` : '',
+    });
+  }
+
+  return MARKET_SYMBOLS.map((entry) => rows.find((row) => row.symbol === entry.ticker)).filter(
+    (row): row is MarketRow => Boolean(row)
+  );
+}
+
+async function fetchMarketSnapshot(): Promise<MarketRow[]> {
   try {
-    const response = await fetch(
-      `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(MARKET_SYMBOLS.join(','))}`,
-      { next: { revalidate: 900 } }
-    );
+    const tickers = MARKET_SYMBOLS.map((entry) => entry.ticker.replace('^', '%5E')).join('+');
+    const response = await fetch(`https://stooq.com/q/l/?s=${tickers}&f=sd2t2ohlc&h&e=csv`, {
+      headers: REQUEST_HEADERS,
+      next: { revalidate: 900 },
+    });
 
     if (!response.ok) return [];
 
-    const data = (await response.json()) as YahooQuoteApi;
-    const rows = data.quoteResponse?.result ?? [];
-
-    return rows
-      .map((row) => {
-        const symbol = row.symbol ?? '';
-        const price = row.regularMarketPrice ?? 0;
-        const changePct = row.regularMarketChangePercent ?? 0;
-
-        return {
-          symbol,
-          name: row.shortName || MARKET_NAME_FALLBACK[symbol] || symbol,
-          price,
-          changePct,
-        };
-      })
-      .filter((row) => row.symbol && row.price > 0);
+    return parseStooqCsv(await response.text());
   } catch {
     return [];
-  }
-}
-
-async function fetchWeather(): Promise<{ city: string; temperatureC: number; windKmh: number; summary: string } | null> {
-  try {
-    const response = await fetch(
-      'https://api.open-meteo.com/v1/forecast?latitude=41.0082&longitude=28.9784&current=temperature_2m,weather_code,wind_speed_10m&timezone=auto',
-      { next: { revalidate: 1800 } }
-    );
-
-    if (!response.ok) return null;
-
-    const data = (await response.json()) as OpenMeteoApi;
-    const current = data.current;
-    if (!current) return null;
-
-    const temperatureC = current.temperature_2m ?? 0;
-    const windKmh = current.wind_speed_10m ?? 0;
-    const code = current.weather_code ?? -1;
-
-    return {
-      city: 'Istanbul',
-      temperatureC,
-      windKmh,
-      summary: weatherCodeToText(code),
-    };
-  } catch {
-    return null;
   }
 }
 
 export async function getHomepageWidgetsData(): Promise<HomepageWidgetsData> {
-  const [currencyRates, marketSnapshot, weather] = await Promise.all([
+  const [currencyRates, marketSnapshot] = await Promise.all([
     fetchCurrencyRates(),
     fetchMarketSnapshot(),
-    fetchWeather(),
   ]);
 
-  return {
-    currencyRates,
-    marketSnapshot,
-    weather: weather ?? {
-      city: 'Istanbul',
-      temperatureC: 0,
-      windKmh: 0,
-      summary: 'Unavailable',
-    },
-  };
+  return { currencyRates, marketSnapshot };
 }

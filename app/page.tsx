@@ -152,7 +152,7 @@ export default async function HomePage() {
 
       {/* How it works */}
       <section className="mx-auto max-w-[1200px] px-4 mt-16">
-        <h2 className="text-2xl font-display font-bold text-[#1e3a5f] mb-8 text-center">How MoneyTools Works</h2>
+        <h2 className="text-2xl font-display font-bold text-[#1e3a5f] mb-8 text-center">How MoneyAtlas Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { step: '1', title: 'Choose a Calculator', desc: 'Pick from 20 financial calculators across investment, loans, mortgage, savings, business, and salary categories.' },
@@ -173,7 +173,7 @@ export default async function HomePage() {
       {/* Trust Signals */}
       <section className="bg-[#f7fafc] mt-16 py-12">
         <div className="mx-auto max-w-[1200px] px-4">
-          <h2 className="text-2xl font-display font-bold text-[#1e3a5f] mb-8 text-center">Why Trust MoneyTools</h2>
+          <h2 className="text-2xl font-display font-bold text-[#1e3a5f] mb-8 text-center">Why Trust MoneyAtlas</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { icon: <Shield className="h-5 w-5" />, title: 'Verified Accuracy', desc: 'Every calculator engine is unit-tested with independently verified expected values.' },

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms',
-  description: 'MoneyTools terms for using the website and its financial calculators.',
+  description: 'MoneyAtlas terms for using the website and its financial calculators.',
 };
 
 export default function TermsPage() {
@@ -17,7 +17,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">1. Acceptance of These Terms</h2>
           <p>
-            By accessing or using MoneyTools, you agree to these Terms. If you do not agree, please do not
+            By accessing or using MoneyAtlas, you agree to these Terms. If you do not agree, please do not
             use the website.
           </p>
         </section>
@@ -25,7 +25,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">2. Permitted Use</h2>
           <p>
-            MoneyTools is provided for lawful personal, educational, and professional reference use. You may
+            MoneyAtlas is provided for lawful personal, educational, and professional reference use. You may
             use the calculators to explore financial scenarios and compare assumptions.
           </p>
         </section>
@@ -42,7 +42,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">4. Informational and Educational Nature</h2>
           <p>
-            MoneyTools calculators and written content are provided for informational and educational
+            MoneyAtlas calculators and written content are provided for informational and educational
             purposes. They are designed to assist analysis and planning, not to replace individualized
             professional guidance.
           </p>
@@ -51,7 +51,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">5. No Professional Advice</h2>
           <p>
-            MoneyTools does not provide financial, investment, tax, legal, or accounting advice. Nothing on
+            MoneyAtlas does not provide financial, investment, tax, legal, or accounting advice. Nothing on
             this website constitutes a recommendation or endorsement of any specific transaction,
             investment, product, or strategy.
           </p>
@@ -91,7 +91,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">9. External Links</h2>
           <p>
-            MoneyTools may contain links or references to external websites or services. We do not control
+            MoneyAtlas may contain links or references to external websites or services. We do not control
             those third-party resources and are not responsible for their content, terms, privacy
             practices, or availability.
           </p>
@@ -100,7 +100,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">10. Intellectual Property</h2>
           <p>
-            Unless otherwise stated, website content, text, and calculator presentation on MoneyTools are
+            Unless otherwise stated, website content, text, and calculator presentation on MoneyAtlas are
             protected by applicable intellectual property laws. You may not copy, republish, or redistribute
             substantial portions of the site for commercial misuse without permission.
           </p>
@@ -113,14 +113,14 @@ export default function TermsPage() {
             <li>Interfere with service operations, security, or availability</li>
             <li>Use automated abuse patterns that overload infrastructure</li>
             <li>Scrape or copy content in a way that violates applicable law</li>
-            <li>Misrepresent MoneyTools outputs as guaranteed outcomes</li>
+            <li>Misrepresent MoneyAtlas outputs as guaranteed outcomes</li>
           </ul>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">12. Service Changes</h2>
           <p>
-            MoneyTools may update, suspend, or remove features, calculators, or content at any time as the
+            MoneyAtlas may update, suspend, or remove features, calculators, or content at any time as the
             website evolves.
           </p>
         </section>
@@ -128,7 +128,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">13. Limitation of Liability</h2>
           <p>
-            To the fullest extent permitted by applicable law, MoneyTools is not liable for direct,
+            To the fullest extent permitted by applicable law, MoneyAtlas is not liable for direct,
             indirect, incidental, consequential, or special losses arising from use of (or inability to use)
             the website, calculator outputs, or third-party data.
           </p>
@@ -137,7 +137,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">14. Relationship to Privacy Policy</h2>
           <p>
-            Use of MoneyTools is also subject to the{' '}
+            Use of MoneyAtlas is also subject to the{' '}
             <Link href="/privacy" className="text-[#3182ce] hover:underline">
               Privacy Policy
             </Link>
@@ -160,7 +160,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-semibold text-[#1e3a5f]">16. Updates to These Terms</h2>
           <p>
             These Terms may be revised from time to time. Updates take effect when posted on this page,
-            and continued use of MoneyTools after updates indicates acceptance of the revised Terms.
+            and continued use of MoneyAtlas after updates indicates acceptance of the revised Terms.
           </p>
         </section>
       </div>

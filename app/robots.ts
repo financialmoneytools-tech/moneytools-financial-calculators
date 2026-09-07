@@ -4,10 +4,11 @@ import { headers } from 'next/headers';
 export const dynamic = 'force-dynamic';
 
 export default function robots(): MetadataRoute.Robots {
-  let baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://moneytools.com';
+  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  let baseUrl = configuredUrl ?? 'https://www.moneyatlas.net';
   try {
     const h = headers();
-    const host = h.get('x-forwarded-host') ?? h.get('host');
+    const host = configuredUrl ? null : (h.get('x-forwarded-host') ?? h.get('host'));
     if (host) {
       const proto = h.get('x-forwarded-proto') ?? 'https';
       baseUrl = `${proto}://${host}`;

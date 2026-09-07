@@ -4,10 +4,10 @@ import { Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'How to contact MoneyTools for calculator issues, feedback, and privacy-related questions.',
+  description: 'How to contact MoneyAtlas for calculator issues, feedback, and privacy-related questions.',
 };
 
-const CONTACT_EMAIL = 'contact@moneytools.com';
+const CONTACT_EMAIL = 'contact@moneyatlas.net';
 
 export default function ContactPage() {
   return (
@@ -18,9 +18,9 @@ export default function ContactPage() {
         <p>Last updated: August 18, 2026</p>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">How to Reach MoneyTools</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">How to Reach MoneyAtlas</h2>
           <p>
-            MoneyTools currently provides email-based contact support.
+            MoneyAtlas currently provides email-based contact support.
           </p>
           <div className="rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-md)' }}>
             <div className="flex items-start gap-3">
@@ -45,7 +45,7 @@ export default function ContactPage() {
             <li>Suggesting a new calculator or feature improvement</li>
             <li>Reporting a broken page, layout issue, or technical bug</li>
             <li>Asking a privacy-related question</li>
-            <li>Sharing general feedback or questions about MoneyTools</li>
+            <li>Sharing general feedback or questions about MoneyAtlas</li>
           </ul>
         </section>
 
@@ -53,7 +53,7 @@ export default function ContactPage() {
           <h2 className="text-xl font-semibold text-[#1e3a5f]">No Contact Form at This Time</h2>
           <p>
             The current implementation does not include an active website contact form backend. If you need
-            to reach MoneyTools, please use the email address above.
+            to reach MoneyAtlas, please use the email address above.
           </p>
         </section>
 

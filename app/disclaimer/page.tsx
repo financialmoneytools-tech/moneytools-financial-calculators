@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Disclaimer',
-  description: 'MoneyTools disclaimer — financial calculators and live snapshot data are provided for informational and educational use.',
+  description: 'MoneyAtlas disclaimer — financial calculators and live snapshot data are provided for informational and educational use.',
 };
 
 export default function DisclaimerPage() {
@@ -14,9 +14,9 @@ export default function DisclaimerPage() {
         <p>Last updated: August 18, 2026</p>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">Purpose of MoneyTools</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">Purpose of MoneyAtlas</h2>
           <p>
-            MoneyTools provides financial calculators and educational tools for general informational use.
+            MoneyAtlas provides financial calculators and educational tools for general informational use.
             The content and calculator outputs are intended to help users explore scenarios, not to replace
             professional judgment.
           </p>
@@ -25,7 +25,7 @@ export default function DisclaimerPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">No Professional Advice</h2>
           <p>
-            MoneyTools does not provide financial, investment, tax, accounting, legal, or other professional
+            MoneyAtlas does not provide financial, investment, tax, accounting, legal, or other professional
             advice. Nothing on this website should be interpreted as a recommendation to take (or avoid)
             any specific financial action.
           </p>
@@ -59,7 +59,7 @@ export default function DisclaimerPage() {
             factors.
           </p>
           <p>
-            MoneyTools does not guarantee that calculator results will match actual offers, contracts,
+            MoneyAtlas does not guarantee that calculator results will match actual offers, contracts,
             taxes, investment returns, loan terms, or any other real-world outcomes.
           </p>
         </section>
@@ -81,7 +81,7 @@ export default function DisclaimerPage() {
             or any transaction where an exact rate matters.
           </p>
           <p>
-            Third-party data may be delayed, unavailable, incomplete, or inaccurate. MoneyTools does not
+            Third-party data may be delayed, unavailable, incomplete, or inaccurate. MoneyAtlas does not
             guarantee the accuracy, completeness, timeliness, or availability of third-party data. When
             the source is unavailable the panel says so rather than showing an estimated or previously
             cached value.
@@ -91,7 +91,7 @@ export default function DisclaimerPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">External Links and External Services</h2>
           <p>
-            This website may reference or link to external websites or services. MoneyTools does not control
+            This website may reference or link to external websites or services. MoneyAtlas does not control
             those external services and is not responsible for their content, terms, privacy practices, or
             service availability.
           </p>
@@ -105,19 +105,19 @@ export default function DisclaimerPage() {
           </p>
           <p>
             If advertisements are enabled in the future, ad placement or ad presence should not be
-            interpreted as an endorsement, financial recommendation, or suitability statement by MoneyTools.
+            interpreted as an endorsement, financial recommendation, or suitability statement by MoneyAtlas.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">Limitation of Liability</h2>
           <p>
-            To the fullest extent permitted by applicable law, MoneyTools is not responsible for losses,
+            To the fullest extent permitted by applicable law, MoneyAtlas is not responsible for losses,
             damages, or costs that result from reliance on calculator outputs, third-party snapshot data,
             or other informational content on this website.
           </p>
           <p>
-            Your use of MoneyTools is at your own discretion, and you remain responsible for decisions
+            Your use of MoneyAtlas is at your own discretion, and you remain responsible for decisions
             based on the information provided.
           </p>
         </section>

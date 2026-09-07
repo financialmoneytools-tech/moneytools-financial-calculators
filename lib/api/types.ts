@@ -44,7 +44,7 @@ export function fail<T>(reason: FailureReason): Result<T> {
  * code — never a URL (which may carry an API key) and never response bodies.
  */
 export function logProviderFailure(provider: string, reason: FailureReason): void {
-  console.warn(`[moneytools] provider "${provider}" unavailable (${reason})`);
+  console.warn(`[moneyatlas] provider "${provider}" unavailable (${reason})`);
 }
 
 interface FetchOptions {
@@ -69,7 +69,7 @@ async function fetchWithTimeout(
       signal: AbortSignal.timeout(timeoutMs),
       headers: {
         Accept: options.accept ?? 'application/json',
-        'User-Agent': 'MoneyTools/1.0 (+https://moneytools.com)',
+        'User-Agent': 'MoneyAtlas/1.0 (+https://www.moneyatlas.net)',
       },
       next: { revalidate: options.revalidate },
     });

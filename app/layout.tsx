@@ -12,10 +12,13 @@ const jakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-di
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXTAUTH_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? 'https://moneytools.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.moneyatlas.net'),
+  alternates: {
+    canonical: './',
+  },
   title: {
-    default: 'MoneyTools — Free Financial Calculators',
-    template: '%s — MoneyTools',
+    default: 'MoneyAtlas — Free Financial Calculators',
+    template: '%s — MoneyAtlas',
   },
   description: 'Free financial calculators for compound interest, loans, mortgages, savings, business metrics, and salary conversions. Fast, accurate, and easy to use.',
   icons: {
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'MoneyTools',
+    siteName: 'MoneyAtlas',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
 };

@@ -2,23 +2,23 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About MoneyTools',
+  title: 'About MoneyAtlas',
   description:
-    'Learn what MoneyTools provides, who the calculators are for, and how we approach clear and transparent financial estimation tools.',
+    'Learn what MoneyAtlas provides, who the calculators are for, and how we approach clear and transparent financial estimation tools.',
 };
 
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-[800px] px-4 py-12">
-      <h1 className="mb-6 text-3xl font-display font-bold tracking-tight text-[#1e3a5f]">About MoneyTools</h1>
+      <h1 className="mb-6 text-3xl font-display font-bold tracking-tight text-[#1e3a5f]">About MoneyAtlas</h1>
 
       <div className="space-y-6 leading-relaxed text-slate-600">
         <p>Last updated: August 18, 2026</p>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">1. What MoneyTools Is</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">1. What MoneyAtlas Is</h2>
           <p>
-            MoneyTools is a free financial calculator website. It is built to help people quickly run
+            MoneyAtlas is a free financial calculator website. It is built to help people quickly run
             practical financial calculations and better understand how common money decisions can play out
             under different assumptions.
           </p>
@@ -32,7 +32,7 @@ export default function AboutPage() {
             computed result that can be used for scenario exploration.
           </p>
           <p>
-            MoneyTools also includes supporting explanations so users can understand assumptions and
+            MoneyAtlas also includes supporting explanations so users can understand assumptions and
             interpret outputs responsibly instead of relying on a number without context.
           </p>
         </section>
@@ -40,7 +40,7 @@ export default function AboutPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">3. Who the Calculators Are Designed For</h2>
           <p>
-            MoneyTools is intended for a broad audience, including students, households, borrowers,
+            MoneyAtlas is intended for a broad audience, including students, households, borrowers,
             savers, investors, founders, operators, and anyone who wants quick, structured financial
             estimates without building their own spreadsheet from scratch.
           </p>
@@ -58,7 +58,7 @@ export default function AboutPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">5. Our Approach</h2>
           <p>
-            MoneyTools focuses on clarity, transparency, and practical usefulness. Outputs are presented in
+            MoneyAtlas focuses on clarity, transparency, and practical usefulness. Outputs are presented in
             straightforward language and formatting, with calculator-specific methodology details documented
             in the product.
           </p>
@@ -104,7 +104,7 @@ export default function AboutPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">8. Transparency and Continuous Improvement</h2>
           <p>
-            MoneyTools aims to keep trust pages aligned with the live implementation. As calculators,
+            MoneyAtlas aims to keep trust pages aligned with the live implementation. As calculators,
             integrations, or policies evolve, these pages should be reviewed and updated so they remain
             accurate, clear, and useful.
           </p>

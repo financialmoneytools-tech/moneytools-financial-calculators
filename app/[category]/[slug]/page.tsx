@@ -61,6 +61,7 @@ export async function generateMetadata({ params }: { params: { category: string;
     title: calc.seo?.title ?? calc.name,
     description: calc.seo?.description ?? calc.description,
     keywords: calc.seo?.keywords,
+    alternates: { canonical: calc.route },
   };
 }
 

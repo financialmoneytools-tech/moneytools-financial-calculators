@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'MoneyTools privacy policy — how we handle data based on the current implementation.',
+  description: 'MoneyAtlas privacy policy — how we handle data based on the current implementation.',
 };
 
 export default function PrivacyPage() {
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">1. Introduction</h2>
           <p>
-            This Privacy Policy explains how MoneyTools currently handles information on this website.
+            This Privacy Policy explains how MoneyAtlas currently handles information on this website.
             It is written to reflect the current codebase implementation as accurately as possible.
           </p>
           <p>
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">2. Information We Collect</h2>
           <p>
-            <strong>Currently:</strong> MoneyTools is designed to minimize data collection. The repository
+            <strong>Currently:</strong> MoneyAtlas is designed to minimize data collection. The repository
             does not show user account creation, login, contact form submission handling, or backend
             storage for calculator input values.
           </p>
@@ -214,7 +214,7 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">14. Third-Party Websites and Services</h2>
           <p>
-            MoneyTools may rely on or reference third-party services. Their privacy practices are governed
+            MoneyAtlas may rely on or reference third-party services. Their privacy practices are governed
             by their own policies and terms, not this Privacy Policy.
           </p>
         </section>
@@ -222,7 +222,7 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">15. Children&apos;s Privacy</h2>
           <p>
-            MoneyTools is a general-audience financial calculator website and is not designed to
+            MoneyAtlas is a general-audience financial calculator website and is not designed to
             intentionally collect personal information from children.
           </p>
         </section>

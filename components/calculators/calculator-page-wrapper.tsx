@@ -27,7 +27,7 @@ export function CalculatorPageWrapper({
   const category = getCategoryBySlug(calc?.categorySlug ?? '');
   const related = getRelatedCalculators(slug);
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://moneytools.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.moneyatlas.net';
 
   const breadcrumbItems = [
     { label: category?.name ?? '', href: `/${calc?.categorySlug ?? ''}` },

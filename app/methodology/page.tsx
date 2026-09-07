@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Methodology',
-  description: 'How MoneyTools calculators work: inputs, formulas, assumptions, precision, and limitations based on the current implementation.',
+  description: 'How MoneyAtlas calculators work: inputs, formulas, assumptions, precision, and limitations based on the current implementation.',
 };
 
 export default function MethodologyPage() {
@@ -14,9 +14,9 @@ export default function MethodologyPage() {
         <p>Last updated: August 18, 2026</p>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">1. How MoneyTools Calculators Work</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">1. How MoneyAtlas Calculators Work</h2>
           <p>
-            MoneyTools currently includes multiple calculator engines across investment, loans, mortgage,
+            MoneyAtlas currently includes multiple calculator engines across investment, loans, mortgage,
             savings, business, and salary categories. Each calculator page is connected to a specific
             calculation engine in the codebase, so methodology is calculator-specific rather than one
             universal formula for all tools.
@@ -44,7 +44,7 @@ export default function MethodologyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">3. Formulas and Calculations</h2>
           <p>
-            MoneyTools uses formula logic that varies by calculator type. Examples from the current engines
+            MoneyAtlas uses formula logic that varies by calculator type. Examples from the current engines
             include:
           </p>
           <ul className="list-disc space-y-1 pl-6">
@@ -106,7 +106,7 @@ export default function MethodologyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">6. Currency and Financial Data</h2>
           <p>
-            MoneyTools calculator math is separate from the homepage Live Financial Snapshot.
+            MoneyAtlas calculator math is separate from the homepage Live Financial Snapshot.
           </p>
           <p>
             The homepage currency panel displays a third-party data feed. It is not part of the core
@@ -186,7 +186,7 @@ export default function MethodologyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">10. Limitations</h2>
           <p>
-            MoneyTools does not model every real-world variable in every calculator. Depending on the tool,
+            MoneyAtlas does not model every real-world variable in every calculator. Depending on the tool,
             omitted variables may include taxes, changing rates, transaction costs, penalties,
             contract-specific rules, or jurisdiction-specific regulations.
           </p>

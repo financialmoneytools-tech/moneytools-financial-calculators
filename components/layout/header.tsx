@@ -13,7 +13,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2 font-display text-xl font-bold text-[#1e3a5f]">
           <Calculator className="h-6 w-6 text-[#3182ce]" />
-          <span>MoneyTools</span>
+          <span>MoneyAtlas</span>
         </Link>
 
         {/* Desktop nav */}

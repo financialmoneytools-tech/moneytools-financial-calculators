@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: { category: string 
   return {
     title: `${cat.name} Calculators`,
     description: cat.description,
+    alternates: { canonical: `/${cat.slug}` },
   };
 }
 

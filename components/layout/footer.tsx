@@ -9,7 +9,7 @@ export function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-2 font-display text-lg font-bold text-[#1e3a5f]">
               <Calculator className="h-5 w-5 text-[#3182ce]" />
-              MoneyTools
+              MoneyAtlas
             </Link>
             <p className="mt-3 text-sm text-slate-500 leading-relaxed">
               Free educational financial calculators. Results are estimates only and do not constitute financial advice.
@@ -44,7 +44,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-slate-200 pt-8 text-center text-xs text-slate-400">
-          © 2026 MoneyTools. All rights reserved. For educational purposes only.
+          © 2026 MoneyAtlas. All rights reserved. For educational purposes only.
         </div>
       </div>
     </footer>

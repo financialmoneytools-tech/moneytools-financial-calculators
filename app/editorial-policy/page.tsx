@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Editorial Policy',
-  description: 'How MoneyTools maintains accuracy and integrity across all financial calculators.',
+  description: 'How MoneyAtlas maintains accuracy and integrity across all financial calculators.',
 };
 
 export default function EditorialPolicyPage() {
@@ -12,7 +12,7 @@ export default function EditorialPolicyPage() {
 
       <div className="space-y-6 text-slate-600 leading-relaxed">
         <p>
-          MoneyTools is committed to providing accurate, unbiased financial calculators.
+          MoneyAtlas is committed to providing accurate, unbiased financial calculators.
           This policy outlines how we develop, review, and maintain our tools.
         </p>
 
@@ -31,7 +31,7 @@ export default function EditorialPolicyPage() {
 
         <h2 className="text-xl font-semibold text-[#1e3a5f]">No Fabricated Content</h2>
         <p>
-          MoneyTools does not fabricate interest rates, expert endorsements, user reviews, or financial advice.
+          MoneyAtlas does not fabricate interest rates, expert endorsements, user reviews, or financial advice.
           We present tools and let the numbers speak for themselves.
         </p>
 

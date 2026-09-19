@@ -1,4 +1,5 @@
 import { calculatorContent } from './calculator-content';
+import { categoryContent } from './content/categories';
 
 export interface CalculatorSeo {
   title: string;
@@ -56,6 +57,32 @@ export interface CalculatorEntry {
   seo: CalculatorSeo;
   featured: boolean;
   icon: string; // lucide icon name
+}
+
+/** Points at one calculator in the category and says when it is the right choice. */
+export interface CategoryCalculatorGuide {
+  /** Must match a calculator slug in the registry. */
+  slug: string;
+  useWhen: string;
+  /**
+   * Optional extra paragraphs, for categories holding a single calculator where the
+   * guide carries the detail that a multi-calculator category spreads across entries.
+   */
+  details?: string[];
+}
+
+/** Long-form editorial content rendered on a category landing page. */
+export interface CategoryContent {
+  slug: string;
+  /** Detailed category introduction. */
+  longIntro: string[];
+  /** One entry per calculator in the category, in reading order. */
+  calculatorGuide: CategoryCalculatorGuide[];
+  /** How the calculators in this category approach their maths, and what they leave out. */
+  methodology: string[];
+  /** Category-specific guidance on choosing between the calculators. */
+  whichCalculator: string[];
+  faqs: CalculatorFaq[];
 }
 
 export interface CategoryEntry {
@@ -327,4 +354,8 @@ export function getRelatedCalculators(slug: string): CalculatorEntry[] {
 
 export function getCalculatorContent(slug: string): CalculatorContent | undefined {
   return calculatorContent[slug];
+}
+
+export function getCategoryContent(slug: string): CategoryContent | undefined {
+  return categoryContent[slug];
 }

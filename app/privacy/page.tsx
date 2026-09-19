@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'MoneyAtlas privacy policy — how we handle data based on the current implementation.',
+  description:
+    'How MoneyAtlas handles your information, including cookies, Google AdSense advertising, and your privacy rights under GDPR, KVKK, and CCPA/CPRA.',
 };
 
 export default function PrivacyPage() {
@@ -11,235 +13,415 @@ export default function PrivacyPage() {
       <h1 className="mb-6 text-3xl font-display font-bold tracking-tight text-[#1e3a5f]">Privacy Policy</h1>
 
       <div className="space-y-6 leading-relaxed text-slate-600">
-        <p>Last updated: August 18, 2026</p>
+        <p>Last updated: September 19, 2026</p>
 
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">1. Introduction</h2>
           <p>
-            This Privacy Policy explains how MoneyAtlas currently handles information on this website.
-            It is written to reflect the current codebase implementation as accurately as possible.
+            MoneyAtlas (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) operates the website at{' '}
+            <strong>www.moneyatlas.net</strong>, which provides free financial calculators. This Privacy
+            Policy explains what information we and our partners collect when you visit the website, how
+            that information is used, and the choices and rights available to you.
           </p>
           <p>
-            Where a service or feature is not currently active, this policy states that clearly and also
-            explains what would change if that service is enabled in the future.
+            By using MoneyAtlas, you agree to the practices described in this policy. If you do not agree,
+            please discontinue use of the website.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">2. Information We Collect</h2>
           <p>
-            <strong>Currently:</strong> MoneyAtlas is designed to minimize data collection. The repository
-            does not show user account creation, login, contact form submission handling, or backend
-            storage for calculator input values.
-          </p>
-          <p>
-            <strong>If features are enabled in the future:</strong> If user accounts, forms, analytics, or
-            advertising tools are added, the categories of collected information may expand. This page
-            will be updated before or when those changes are made live.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">3. Calculator Inputs and Financial Information</h2>
-          <p>
-            <strong>Currently:</strong> Calculator inputs are used to perform the calculation you request in
-            the application interface. Based on the current repository implementation, calculator financial
-            inputs are not sent to a dedicated backend storage system and are not saved as user financial
-            profiles.
-          </p>
-          <p>
-            <strong>If this changes in the future:</strong> If any calculator workflow begins submitting or
-            storing inputs on a backend service, this policy will be updated to describe what is collected,
-            why, and for how long.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">4. Automatically Collected Technical Information</h2>
-          <p>
-            <strong>Currently:</strong> As with standard web operations, technical information (such as IP
-            address, browser user-agent, request timestamps, and request metadata) may be processed by
-            hosting/infrastructure layers and by third-party services needed to deliver requested content.
-          </p>
-          <p>
-            <strong>If monitoring tools are enabled in the future:</strong> Additional technical telemetry
-            may be collected by those tools, and this section will be updated accordingly.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">5. Third-Party Services and Data Sources</h2>
-          <p>
-            <strong>Currently:</strong> The homepage currency panel retrieves data from one third-party
-            source:
+            MoneyAtlas does not offer user accounts, and we do not ask you to register, sign in, or submit
+            personal details in order to use our calculators. We collect the following categories of
+            information:
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              <code>api.frankfurter.dev</code>, for European Central Bank euro foreign exchange
-              reference rates
+              <strong>Technical and usage information.</strong> When you request a page, our hosting
+              provider and content delivery network process standard technical data such as your IP
+              address, browser type and version, device and operating system, referring page, requested
+              URL, and the date and time of the request. This data is used to deliver the website, keep it
+              secure, and diagnose faults.
+            </li>
+            <li>
+              <strong>Information collected by advertising partners.</strong> Google and its advertising
+              partners collect information through cookies and similar technologies in order to serve and
+              measure ads. See section 5 for details.
+            </li>
+            <li>
+              <strong>Information you send us voluntarily.</strong> If you email us using the address on
+              our{' '}
+              <Link href="/contact" className="font-medium text-[#3182ce] underline underline-offset-2">
+                Contact
+              </Link>{' '}
+              page, we receive your email address and whatever you choose to include in your message.
             </li>
           </ul>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">3. Calculator Inputs</h2>
           <p>
-            This request is made by our servers, not by your browser, and the response is cached and
-            shared across all visitors. The provider therefore does not receive your IP address, your
-            browser details, or any other information about you when you view the homepage.
+            The numbers you enter into our calculators &mdash; loan amounts, interest rates, salaries,
+            savings targets, business figures, and similar values &mdash; are processed in your browser to
+            produce the result shown on screen.
           </p>
           <p>
-            <strong>If providers or data sources change in the future:</strong> This list will be revised to
-            match the active implementation.
+            We do not transmit these values to a MoneyAtlas server, we do not store them in a database, and
+            we do not build financial profiles about you from them. Closing or reloading the page discards
+            them.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">6. External Scripts</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">4. Cookies and Similar Technologies</h2>
           <p>
-            <strong>Currently:</strong> The site loads no third-party scripts. All JavaScript served to
-            your browser originates from this site&rsquo;s own domain.
+            Cookies are small files placed on your device by a website or by a third party whose content is
+            embedded in that website. MoneyAtlas itself does not set tracking cookies and does not require
+            cookies for the calculators to work.
           </p>
           <p>
-            <strong>If additional scripts are added in the future:</strong> They will be documented in this
+            However, <strong>Google and its advertising partners do set cookies</strong> on this site in
+            connection with the advertising described in section 5. These may include cookies used to
+            select ads, limit how often you see the same ad, remember ad interactions, and detect invalid
+            traffic or fraud.
+          </p>
+          <p>
+            Most browsers let you view, block, or delete cookies through their settings. Blocking
+            advertising cookies does not prevent you from using our calculators, though you may see ads
+            that are less relevant to you.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">5. Advertising and Google AdSense</h2>
+          <p>
+            MoneyAtlas is supported by advertising. We use <strong>Google AdSense</strong>, a third-party
+            advertising service operated by Google, to display ads on this website. In connection with this:
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              Third-party vendors, including Google, use cookies to serve ads based on your prior visits to
+              MoneyAtlas or to other websites.
+            </li>
+            <li>
+              Google&rsquo;s use of advertising cookies enables it and its partners to serve ads to you
+              based on your visit to this site and/or other sites on the Internet.
+            </li>
+            <li>
+              Google may use a cookie or similar identifier (historically referred to as the DoubleClick
+              cookie) and the Google Advertising ID to enable ad selection, frequency capping, conversion
+              tracking, and ad performance measurement.
+            </li>
+            <li>
+              Other third-party advertising vendors or ad networks participating in Google&rsquo;s
+              programmatic ecosystem may also serve ads or measure their performance on this site, using
+              their own cookies and technologies under their own privacy policies.
+            </li>
+            <li>
+              Advertising partners may process technical data such as your IP address, device and browser
+              information, approximate location derived from your IP address, and your interactions with
+              ads.
+            </li>
+          </ul>
+          <p>
+            <strong>Personalized versus non-personalized ads.</strong> Ads on MoneyAtlas may be
+            personalized, meaning they are selected using information about your inferred interests or
+            prior browsing, or non-personalized, meaning they are based only on general context such as the
+            page content and your approximate location. In regions where consent is legally required before
+            personalized advertising, Google presents a consent message and serves personalized ads only
+            where a valid legal basis exists. You can change your preference at any time using the controls
+            below.
+          </p>
+          <p>
+            You may opt out of personalized advertising by Google by visiting{' '}
+            <a
+              href="https://adssettings.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[#3182ce] underline underline-offset-2"
+            >
+              Google Ads Settings
+            </a>
+            . You can opt out of personalized advertising from many other participating vendors at{' '}
+            <a
+              href="https://www.aboutads.info/choices/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[#3182ce] underline underline-offset-2"
+            >
+              aboutads.info/choices
+            </a>{' '}
+            or{' '}
+            <a
+              href="https://www.youronlinechoices.eu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[#3182ce] underline underline-offset-2"
+            >
+              youronlinechoices.eu
+            </a>
+            .
+          </p>
+          <p>
+            For details on how Google collects and uses data when you use its partners&rsquo; sites, see{' '}
+            <a
+              href="https://policies.google.com/technologies/partner-sites"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[#3182ce] underline underline-offset-2"
+            >
+              How Google uses information from sites or apps that use our services
+            </a>
+            .
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">6. Third-Party Services We Rely On</h2>
+          <p>Beyond advertising, MoneyAtlas depends on the following third parties:</p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              <strong>Hosting and delivery.</strong> Our hosting provider processes request data as
+              described in section 2 in order to serve pages and protect the service.
+            </li>
+            <li>
+              <strong>Google Fonts.</strong> Web fonts are bundled and served from our own domain, so your
+              browser does not make requests to Google&rsquo;s font servers when loading our pages.
+            </li>
+            <li>
+              <strong>Frankfurter (frankfurter.dev).</strong> Reference exchange rates published by the
+              European Central Bank are fetched by our servers, not by your browser, and cached and shared
+              across all visitors. This provider therefore does not receive your IP address or any other
+              information about you.
+            </li>
+          </ul>
+          <p>
+            We do not currently operate Google Analytics, Google Tag Manager, Meta Pixel, Hotjar, or
+            similar analytics products on this website. If we introduce one, we will update this policy
+            before doing so.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">7. How We Use Information</h2>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>To deliver the calculators, pages, and reference data you request</li>
+            <li>To operate, maintain, secure, and troubleshoot the website</li>
+            <li>To display advertising that funds the free availability of this website</li>
+            <li>To detect and prevent fraud, abuse, and invalid ad traffic</li>
+            <li>To respond to messages you send us by email</li>
+            <li>To comply with legal obligations</li>
+          </ul>
+          <p>
+            We do not sell or rent your personal information, and we do not share it with third parties for
+            their own independent marketing purposes.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">8. Legal Bases for Processing (EEA and UK)</h2>
+          <p>
+            If you are in the European Economic Area or the United Kingdom, we process personal data on the
+            following legal bases under the GDPR and UK GDPR:
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              <strong>Legitimate interests</strong> &mdash; for operating, securing, and maintaining the
+              website, and for showing non-personalized advertising.
+            </li>
+            <li>
+              <strong>Consent</strong> &mdash; for personalized advertising and for any non-essential
+              cookies and similar technologies. You may withdraw your consent at any time, and withdrawal
+              does not affect processing that took place before withdrawal.
+            </li>
+            <li>
+              <strong>Legal obligation</strong> &mdash; where we must retain or disclose information to
+              comply with the law.
+            </li>
+          </ul>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">9. Your Rights in the EEA and UK (GDPR)</h2>
+          <p>Subject to the conditions and exceptions in the GDPR and UK GDPR, you have the right to:</p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>Request access to the personal data we hold about you</li>
+            <li>Request correction of inaccurate or incomplete data</li>
+            <li>Request erasure of your personal data</li>
+            <li>Request restriction of processing</li>
+            <li>Object to processing carried out on the basis of legitimate interests</li>
+            <li>Request portability of data you have provided to us</li>
+            <li>Withdraw consent at any time where processing is based on consent</li>
+            <li>
+              Lodge a complaint with your national data protection authority, or with the Information
+              Commissioner&rsquo;s Office in the United Kingdom
+            </li>
+          </ul>
+          <p>
+            Because we do not operate accounts and do not store your calculator inputs, we usually hold
+            very little information that can identify you. Where data is held by a third party such as
+            Google, you may need to exercise your rights directly with that provider under its own privacy
             policy.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">7. Cookies and Local Storage</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">
+            10. Your Rights in Türkiye (KVKK / Law No. 6698)
+          </h2>
           <p>
-            <strong>Currently:</strong> The application does not implement an active cookie consent flow or
-            an active analytics cookie system in the audited code paths.
-          </p>
-          <p>
-            The repository includes a dormant analytics helper that references browser localStorage for an
-            analytics consent flag, but this helper is not currently wired into active analytics collection.
-          </p>
-          <p>
-            <strong>If cookie- or localStorage-based tracking features are enabled in the future:</strong>{' '}
-            this section will be updated with the active behavior.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">8. Analytics</h2>
-          <p>
-            <strong>Currently:</strong> Google Analytics, Google Tag Manager, Meta Pixel, Hotjar, and
-            Segment are not active in the current implementation.
-          </p>
-          <p>
-            <strong>If analytics is enabled in the future:</strong> This policy will identify the active
-            provider(s), what is measured, and any user controls made available.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">9. Advertising</h2>
-          <p>
-            <strong>Currently:</strong> Google AdSense and personalized advertising are not active.
-          </p>
-          <p>
-            The repository contains an AdSlot component, but advertising display depends on configuration
-            and is not currently active.
-          </p>
-          <p>
-            <strong>If advertising is enabled in the future:</strong> This section will be updated to explain
-            the ad provider, whether personalization is used, and any applicable user choices.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">10. How Information Is Used</h2>
-          <p>
-            <strong>Currently:</strong> Information and technical requests are used to:
+            If you are in Türkiye, the Personal Data Protection Law No. 6698 (&ldquo;KVKK&rdquo;) applies.
+            Under Article 11 of the KVKK you have the right to:
           </p>
           <ul className="list-disc space-y-1 pl-6">
-            <li>Deliver calculator functionality requested by users</li>
-            <li>Display live currency, market, and weather information on the homepage</li>
-            <li>Operate, maintain, and secure website delivery</li>
+            <li>Learn whether your personal data is being processed</li>
+            <li>Request information about processing if your data has been processed</li>
+            <li>
+              Learn the purpose of processing and whether the data is used in accordance with that purpose
+            </li>
+            <li>
+              Know the third parties to whom your personal data is transferred, in Türkiye or abroad
+            </li>
+            <li>Request correction of incomplete or inaccurate personal data</li>
+            <li>
+              Request deletion or destruction of your personal data where the reasons for processing no
+              longer exist
+            </li>
+            <li>
+              Request that corrections, deletions, or destructions be notified to third parties to whom the
+              data was transferred
+            </li>
+            <li>
+              Object to a result produced solely through automated analysis that works to your detriment
+            </li>
+            <li>Claim compensation for damage arising from unlawful processing of your personal data</li>
           </ul>
           <p>
-            <strong>If additional systems are enabled in the future:</strong> This section will be expanded to
-            describe those specific uses.
+            You may exercise these rights by contacting us at the email address on our{' '}
+            <Link href="/contact" className="font-medium text-[#3182ce] underline underline-offset-2">
+              Contact
+            </Link>{' '}
+            page. You also have the right to complain to the Turkish Personal Data Protection Authority
+            (KVKK Kurumu).
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">11. Data Sharing</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">
+            11. Your Rights in California (CCPA / CPRA)
+          </h2>
           <p>
-            <strong>Currently:</strong> The site relies on third-party providers for specific data feeds and
-            external script delivery as listed above. Those providers may process technical request data
-            necessary to serve their APIs or scripts.
+            If you are a California resident, the California Consumer Privacy Act as amended by the
+            California Privacy Rights Act gives you the right to:
           </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              Know what categories of personal information are collected, the purposes for collection, and
+              the categories of third parties with whom it is shared
+            </li>
+            <li>Request access to the specific pieces of personal information collected about you</li>
+            <li>Request deletion of personal information collected from you</li>
+            <li>Request correction of inaccurate personal information</li>
+            <li>
+              Opt out of the &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of personal information for
+              cross-context behavioral advertising
+            </li>
+            <li>Limit the use and disclosure of sensitive personal information</li>
+            <li>Not be discriminated against for exercising any of these rights</li>
+          </ul>
           <p>
-            Beyond those implementation dependencies, this policy does not describe active sale of user
-            personal data by the application.
-          </p>
-          <p>
-            <strong>If integrations expand in the future:</strong> this section will be updated to reflect
-            active sharing pathways.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">12. Data Retention</h2>
-          <p>
-            <strong>Currently:</strong> The repository does not show a backend process storing user
-            calculator inputs as persistent user records.
-          </p>
-          <p>
-            Third-party services listed in this policy may retain request logs under their own policies.
-            Please review their privacy terms for details.
-          </p>
-          <p>
-            <strong>If persistent storage is introduced in the future:</strong> retention terms will be added
-            here.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">13. User Rights</h2>
-          <p>
-            Depending on applicable law, you may have rights regarding personal information (for example,
-            access, correction, deletion, or objection).
-          </p>
-          <p>
-            <strong>Currently:</strong> because active user-account and form-data collection is limited in the
-            current implementation, rights requests may be limited to data processed by relevant
-            infrastructure or third-party providers.
-          </p>
-          <p>
-            <strong>If data collection expands in the future:</strong> this section will be updated with
-            request handling details.
+            We do not sell personal information for money. However, the use of advertising cookies for
+            personalized advertising may be treated as &ldquo;sharing&rdquo; for cross-context behavioral
+            advertising under the CPRA. You can opt out by disabling personalized ads in{' '}
+            <a
+              href="https://adssettings.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[#3182ce] underline underline-offset-2"
+            >
+              Google Ads Settings
+            </a>
+            , by using the opt-out tools listed in section 5, by sending a Global Privacy Control signal
+            from your browser, which our advertising partner treats as an opt-out request in California, or
+            by contacting us. We do not knowingly collect or process sensitive personal information.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">14. Third-Party Websites and Services</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">12. International Data Transfers</h2>
           <p>
-            MoneyAtlas may rely on or reference third-party services. Their privacy practices are governed
-            by their own policies and terms, not this Privacy Policy.
+            MoneyAtlas is delivered through globally distributed infrastructure, and our advertising
+            partner Google operates internationally. As a result, information described in this policy may
+            be processed on servers located outside your country of residence, including in the United
+            States, where data protection laws may differ from those in your jurisdiction.
+          </p>
+          <p>
+            Where personal data of EEA, UK, or Turkish users is transferred abroad, our providers rely on
+            legally recognized transfer mechanisms such as the European Commission&rsquo;s Standard
+            Contractual Clauses, adequacy decisions, or equivalent safeguards required by applicable law.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">15. Children&apos;s Privacy</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">13. Data Retention</h2>
           <p>
-            MoneyAtlas is a general-audience financial calculator website and is not designed to
-            intentionally collect personal information from children.
+            We do not maintain a user database and do not retain your calculator inputs. Server and
+            security logs generated by our hosting provider are retained for a limited period under that
+            provider&rsquo;s standard practices and then deleted or aggregated. Email correspondence is
+            kept only as long as needed to handle your request. Advertising partners retain data according
+            to their own published retention policies.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">16. Changes to This Privacy Policy</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">14. Security</h2>
           <p>
-            This policy may be updated when website functionality or third-party integrations change.
-            Material implementation changes should be reflected here so this document remains accurate.
+            The website is served over encrypted HTTPS connections, and we apply reasonable technical and
+            organizational measures to protect the limited information we handle. No method of transmission
+            or storage over the Internet is completely secure, and we cannot guarantee absolute security.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">17. Contact</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">15. Children&rsquo;s Privacy</h2>
           <p>
-            For privacy-related questions, please use the Contact page. The current Contact page provides
-            an email address for inquiries.
+            MoneyAtlas is a general-audience website intended for adults and is not directed to children
+            under the age of 13 (or the equivalent minimum age in your jurisdiction). We do not knowingly
+            collect personal information from children. If you believe a child has provided us with
+            personal information, please contact us and we will delete it.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">16. Third-Party Websites</h2>
+          <p>
+            Our pages may contain advertisements or links that lead to websites we do not operate. We are
+            not responsible for the content or privacy practices of those websites. We encourage you to
+            read the privacy policy of every website you visit.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">17. Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy to reflect changes in our practices, the services we use, or
+            applicable law. The &ldquo;Last updated&rdquo; date at the top of this page shows when the most
+            recent revision took effect. Please review this page periodically.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">18. Contact Us</h2>
+          <p>
+            For questions about this Privacy Policy, or to exercise any of the rights described above,
+            please reach us through our{' '}
+            <Link href="/contact" className="font-medium text-[#3182ce] underline underline-offset-2">
+              Contact
+            </Link>{' '}
+            page, which lists our email address. We aim to respond to privacy requests within the time
+            limits set by applicable law.
           </p>
         </section>
       </div>

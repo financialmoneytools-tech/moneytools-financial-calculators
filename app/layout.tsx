@@ -7,6 +7,8 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import type { Metadata } from 'next';
 
+const ADSENSE_PUBLISHER_ID = 'ca-pub-5239573754920533';
+
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' });
 const jakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-display' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
@@ -25,6 +27,9 @@ export const metadata: Metadata = {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
   },
+  other: {
+    'google-adsense-account': ADSENSE_PUBLISHER_ID,
+  },
   openGraph: {
     type: 'website',
     siteName: 'MoneyAtlas',
@@ -35,6 +40,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${dmSans.variable} ${jakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">

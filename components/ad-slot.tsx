@@ -1,10 +1,16 @@
+'use client';
+
 /**
- * AdSlot stub component — reserves space for ads but renders nothing visible in V1.
- * Renders only if NEXT_PUBLIC_ADSENSE_CLIENT_ID is set.
+ * AdSlot — renders a Google AdSense unit.
+ * Renders only if NEXT_PUBLIC_ADSENSE_CLIENT_ID is set; otherwise nothing is output.
  */
+
+import { useEffect, useRef } from 'react';
 
 interface AdSlotProps {
   format: 'leaderboard' | 'rectangle' | 'mobile-banner';
+  /** AdSense ad unit id (data-ad-slot). Optional while units are being created. */
+  slot?: string;
   className?: string;
 }
 
@@ -14,16 +20,43 @@ const dimensions = {
   'mobile-banner': { width: 320, height: 50 },
 };
 
-export function AdSlot({ format, className }: AdSlotProps) {
-  // No ads in V1
-  if (!process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID) return null;
+const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+
+export function AdSlot({ format, slot, className }: AdSlotProps) {
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (!ADSENSE_CLIENT_ID || pushed.current) return;
+    pushed.current = true;
+
+    try {
+      const w = window as typeof window & { adsbygoogle?: unknown[] };
+      w.adsbygoogle = w.adsbygoogle ?? [];
+      w.adsbygoogle.push({});
+    } catch {
+      // AdSense script blocked or unavailable — leave the reserved space empty.
+    }
+  }, []);
+
+  if (!ADSENSE_CLIENT_ID) return null;
 
   const dim = dimensions[format] ?? dimensions.rectangle;
+
   return (
     <div
       className={`mx-auto ${className ?? ''}`}
-      style={{ width: dim.width, height: dim.height, maxWidth: '100%' }}
-      aria-hidden="true"
-    />
+      style={{ width: dim.width, minHeight: dim.height, maxWidth: '100%' }}
+      role="complementary"
+      aria-label="Advertisement"
+    >
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block', width: '100%', minHeight: dim.height }}
+        data-ad-client={ADSENSE_CLIENT_ID}
+        data-ad-slot={slot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    </div>
   );
 }

@@ -1,6 +1,7 @@
 import { BreadcrumbNav } from '@/components/layout/breadcrumb-nav';
 import { FaqSection } from '@/components/calculators/faq-section';
 import { RelatedCalculators } from '@/components/calculators/related-calculators';
+import { AdSlot } from '@/components/ad-slot';
 import { getCalculatorBySlug, getRelatedCalculators, getCategoryBySlug } from '@/data/registry';
 import { breadcrumbJsonLd, faqJsonLd, softwareApplicationJsonLd } from '@/lib/seo/structured-data';
 import Link from 'next/link';
@@ -85,6 +86,9 @@ export function CalculatorPageWrapper({
           {workedExample}
         </div>
       </section>
+
+      {/* In-content ad */}
+      <AdSlot format="leaderboard" className="mt-10" />
 
       {/* When to use */}
       <section className="mt-10">

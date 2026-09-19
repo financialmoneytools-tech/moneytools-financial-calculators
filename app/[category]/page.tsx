@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { categories, getCalculatorsByCategory, getCategoryBySlug, type CalculatorEntry } from '@/data/registry';
 import { BreadcrumbNav } from '@/components/layout/breadcrumb-nav';
+import { AdSlot } from '@/components/ad-slot';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -50,6 +51,9 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </Link>
         ))}
       </div>
+
+      {/* In-content ad */}
+      <AdSlot format="leaderboard" className="mb-12" />
 
       {/* Which calculator guidance */}
       <div className="rounded-xl bg-[#f7fafc] border border-slate-200 p-6 mb-12" style={{ boxShadow: 'var(--shadow-sm)' }}>

@@ -15,7 +15,7 @@ export const loansContent: Record<string, CalculatorContent> = {
     howItWorks: [
       'The calculator converts the annual rate to a monthly rate by dividing by twelve, and the term in years to a number of months by multiplying by twelve. All the arithmetic then happens on a monthly basis.',
       'It solves the standard amortization formula for the payment that exactly retires the balance over that number of months. This payment is fixed for the life of the loan.',
-      'It then builds the full schedule one month at a time. For each month it computes interest as the current balance multiplied by the monthly rate, treats the remainder of the payment as principal, and subtracts that principal from the balance before moving on.',
+      'It then works through the term one payment period at a time, determining the interest, the principal, and the remaining balance for each. For each month it computes interest as the current balance multiplied by the monthly rate, treats the remainder of the payment as principal, and subtracts that principal from the balance before moving on.',
       'Total payment is the monthly payment multiplied by the number of months, and total interest is that total minus the amount borrowed. A zero interest rate is handled separately by dividing the principal evenly across the term.',
     ],
     formula: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]',
@@ -145,7 +145,7 @@ export const loansContent: Record<string, CalculatorContent> = {
       'It computes the monthly payment using the standard amortization formula applied to the full loan amount, because the fee does not reduce what you repay.',
       'The origination fee is calculated as a percentage of the loan amount and treated as deducted from the proceeds, so the net amount you receive is the loan amount minus the fee.',
       'The effective APR is then derived by solving for the rate that equates the same stream of monthly payments to the reduced amount actually received. Because the payments are unchanged while the sum received is smaller, this rate is always higher than the stated rate whenever a fee applies.',
-      'The full amortization schedule is built month by month exactly as for a standard loan, splitting each payment between interest on the outstanding balance and principal.',
+      'Amortization describes how the balance is retired across the term. Each monthly payment first covers the interest that has accrued on the outstanding balance, and whatever remains reduces the principal. Because the balance falls every month, the interest portion shrinks and the principal portion grows, even though the payment itself never changes. On a short personal loan term that shift happens faster than it would on a longer loan, which is why more of your money reaches the principal early on.',
     ],
     formula: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]',
     formulaExplanation:

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -100,12 +101,27 @@ export default function DisclaimerPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">Advertising</h2>
           <p>
-            Advertising services (including Google AdSense) are not currently active in the present
-            implementation.
+            MoneyAtlas is supported by advertising. This website uses Google AdSense, a third-party
+            advertising service operated by Google, so advertising may appear alongside the calculators
+            and written content on this site.
           </p>
           <p>
-            If advertisements are enabled in the future, ad placement or ad presence should not be
-            interpreted as an endorsement, financial recommendation, or suitability statement by MoneyAtlas.
+            Advertisements are selected and served by Google and its advertising partners, not by
+            MoneyAtlas. We do not review, endorse, or verify the advertisers, products, or services that
+            appear, and we do not control which advertisements any particular visitor is shown.
+          </p>
+          <p>
+            The presence of an advertisement is not an endorsement, a financial recommendation, or a
+            statement of suitability by MoneyAtlas. Advertising also has no effect on calculator results:
+            the formulas and the figures they produce are identical regardless of what appears on the page.
+          </p>
+          <p>
+            For details of the cookies and advertising technologies involved, and the choices available to
+            you, see our{' '}
+            <Link href="/privacy" className="text-[#3182ce] hover:underline">
+              Privacy Policy
+            </Link>
+            .
           </p>
         </section>
 

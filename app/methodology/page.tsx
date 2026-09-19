@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Methodology',
-  description: 'How MoneyAtlas calculators work: inputs, formulas, assumptions, precision, and limitations based on the current implementation.',
+  description: 'How MoneyAtlas calculators work: the inputs they take, the formulas they apply, the assumptions they make, how results are rounded, and where their limits lie.',
 };
 
 export default function MethodologyPage() {
@@ -16,15 +16,22 @@ export default function MethodologyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">1. How MoneyAtlas Calculators Work</h2>
           <p>
-            MoneyAtlas currently includes multiple calculator engines across investment, loans, mortgage,
-            savings, business, and salary categories. Each calculator page is connected to a specific
-            calculation engine in the codebase, so methodology is calculator-specific rather than one
-            universal formula for all tools.
+            MoneyAtlas provides calculators across investment, loans, mortgage, savings, business, and
+            salary topics. Each one applies the standard formula for its own subject, so there is no single
+            universal method behind the site. Methodology is specific to each calculator, which is why the
+            formula that governs a result is published on the page that produces it.
           </p>
           <p>
-            In the current implementation, each calculator page takes user inputs, runs the matching
-            TypeScript calculation function, and displays the computed output. Formula, assumptions,
-            and worked-example content are also shown on each calculator page.
+            Every calculator works the same way from your side: you enter the figures that describe your
+            situation, the calculator applies its formula to them, and the result updates immediately as
+            you type. Nothing is submitted, and no result depends on anything beyond the numbers you
+            supply.
+          </p>
+          <p>
+            Alongside each calculator you will find the formula written out, an explanation of what it
+            does, at least two fully worked examples with every step shown, the assumptions the
+            calculation relies on, and the mistakes that most often distort this particular kind of result.
+            That material exists so a figure can be checked and understood rather than simply trusted.
           </p>
         </section>
 
@@ -35,16 +42,17 @@ export default function MethodologyPage() {
             payment amount, costs, revenue, churn, or salary period. Changing an input changes the result.
           </p>
           <p>
-            The calculator engines include input validation (for example, requiring positive loan amounts,
-            valid churn ranges, or non-negative balances where appropriate). If inputs are invalid,
-            the engine throws an error and the page does not render a result for that calculation state.
+            Calculators check the values you enter before calculating &mdash; requiring positive loan
+            amounts, churn rates within a sensible range, or non-negative balances, depending on the tool.
+            When a combination of inputs has no meaningful answer, the calculator shows no result for that
+            state rather than returning a figure that would be misleading.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">3. Formulas and Calculations</h2>
           <p>
-            MoneyAtlas uses formula logic that varies by calculator type. Examples from the current engines
+            The formula applied depends on what is being calculated. Examples used across the site
             include:
           </p>
           <ul className="list-disc space-y-1 pl-6">
@@ -68,19 +76,21 @@ export default function MethodologyPage() {
             </li>
           </ul>
           <p>
-            Some engines are closed-form, while others use iterative period-by-period calculations
-            (for example, amortization schedules, debt payoff sequencing, and contribution-based growth
-            projections).
+            Some of these produce an answer in a single step. Others are worked out period by period,
+            because the figures change as they go: a loan balance falls with every payment, a debt payoff
+            plan redirects money as each balance clears, and a contribution schedule compounds each
+            deposit for only the time remaining after it is made. Where that is the case, the calculation
+            follows the same month-by-month sequence the real arrangement would.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">4. Assumptions</h2>
           <p>
-            Assumptions are not identical across calculators. Each calculator has its own assumptions shown
-            on its page, and the underlying engine reflects that scope.
+            Assumptions are not identical across calculators. Each calculator states its own on its page,
+            and those statements describe exactly what that calculation does and does not account for.
           </p>
-          <p>Examples present in the current implementation include:</p>
+          <p>Common examples across the site include:</p>
           <ul className="list-disc space-y-1 pl-6">
             <li>Fixed-rate assumptions in many growth and amortization scenarios unless otherwise modeled</li>
             <li>Periodic contribution timing (end-of-period or beginning-of-period depending on the tool)</li>
@@ -92,14 +102,16 @@ export default function MethodologyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">5. Rounding and Precision</h2>
           <p>
-            In the calculator engines, intermediate steps are generally computed using JavaScript numeric
-            precision without forced rounding at every step. Display formatting is applied when showing
-            output values in the UI.
+            Calculations are carried out at full precision throughout, and rounding is applied only when a
+            figure is displayed. Rounding at every intermediate step would let small errors accumulate
+            across a long schedule, so the rounding you see affects presentation rather than the
+            underlying arithmetic.
           </p>
           <p>
-            Currency and numeric display formatting is handled by utility formatters, including configured
-            decimal places for currency and percentages. Some amortization-style engines also apply final
-            payment reconciliation so remaining balance does not persist due to tiny residual values.
+            Currency is shown to two decimal places and percentages to the precision appropriate for the
+            figure. For calculations that run to a final payment, the last payment is adjusted to clear
+            exactly the balance that remains, so a schedule ends at zero instead of leaving a fraction of
+            a currency unit outstanding.
           </p>
         </section>
 
@@ -113,7 +125,7 @@ export default function MethodologyPage() {
             mathematical methodology of the calculators, and no calculator uses it as an input.
           </p>
           <p>
-            The single third-party source in the current implementation is:
+            The homepage panel draws on a single third-party data source:
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
@@ -136,8 +148,7 @@ export default function MethodologyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">7. Calculator-Specific Differences</h2>
           <p>
-            Not all calculators behave the same way. The current engines include materially different logic,
-            for example:
+            Not all calculators behave the same way, and the differences are deliberate. For example:
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
@@ -174,12 +185,19 @@ export default function MethodologyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">9. Validation and Quality Checks</h2>
           <p>
-            The repository includes unit tests for calculator engines under
-            <code> lib/calculators/__tests__/</code>, configured through Vitest.
+            Every calculator on this site is covered by an automated test suite. Each test compares what
+            the calculator produces against a result worked out independently from the published formula,
+            so a change that altered a figure would be caught before it reached the site. The tests cover
+            ordinary cases as well as the awkward ones: zero and empty inputs, very large values, very
+            short and very long time periods, and rounding at the boundaries.
           </p>
           <p>
-            In addition, calculator engines use explicit input checks and error handling to prevent invalid
-            numeric scenarios from being shown as normal results.
+            Calculators also validate what you enter before calculating. Where a combination of inputs has
+            no meaningful answer &mdash; a loan term of zero, a negative principal, a break-even price
+            below the variable cost per unit, or a debt whose minimum payment is smaller than its monthly
+            interest &mdash; the calculator declines to produce a figure rather than presenting a
+            misleading one. This matters because an impossible scenario can still yield a number, and a
+            number that looks ordinary is easy to act on.
           </p>
         </section>
 

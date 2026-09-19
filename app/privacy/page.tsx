@@ -18,10 +18,11 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">1. Introduction</h2>
           <p>
-            MoneyAtlas (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) operates the website at{' '}
-            <strong>www.moneyatlas.net</strong>, which provides free financial calculators. This Privacy
-            Policy explains what information we and our partners collect when you visit the website, how
-            that information is used, and the choices and rights available to you.
+            MoneyAtlas is operated by <strong>AVC TRADE LLC</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;,
+            or &ldquo;our&rdquo;), which provides free financial calculators at{' '}
+            <strong>www.moneyatlas.net</strong>. This Privacy Policy explains what information we and our
+            partners collect when you visit the website, how that information is used, and the choices and
+            rights available to you.
           </p>
           <p>
             By using MoneyAtlas, you agree to the practices described in this policy. If you do not agree,
@@ -415,13 +416,23 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold text-[#1e3a5f]">18. Contact Us</h2>
           <p>
+            This website is operated by AVC TRADE LLC, which is responsible for the personal data
+            described in this policy:
+          </p>
+          <p>
+            <strong>AVC TRADE LLC</strong>
+            <br />
+            30 N Gould St, Ste 82801, Sheridan, WY
+            <br />
+            contact@moneyatlas.net
+          </p>
+          <p>
             For questions about this Privacy Policy, or to exercise any of the rights described above,
-            please reach us through our{' '}
+            you can email us at the address above or use our{' '}
             <Link href="/contact" className="font-medium text-[#3182ce] underline underline-offset-2">
               Contact
             </Link>{' '}
-            page, which lists our email address. We aim to respond to privacy requests within the time
-            limits set by applicable law.
+            page. We aim to respond to privacy requests within the time limits set by applicable law.
           </p>
         </section>
       </div>

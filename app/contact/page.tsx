@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Mail } from 'lucide-react';
+import { Building2, Mail, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'How to contact MoneyAtlas for calculator issues, feedback, and privacy-related questions.',
 };
 
+const OPERATOR_NAME = 'AVC TRADE LLC';
+const OPERATOR_ADDRESS = '30 N Gould St, Ste 82801, Sheridan, WY';
 const CONTACT_EMAIL = 'contact@moneyatlas.net';
 
 export default function ContactPage() {
@@ -18,11 +20,29 @@ export default function ContactPage() {
         <p>Last updated: August 18, 2026</p>
 
         <section className="space-y-2">
-          <h2 className="text-xl font-semibold text-[#1e3a5f]">How to Reach MoneyAtlas</h2>
+          <h2 className="text-xl font-semibold text-[#1e3a5f]">Who Operates MoneyAtlas</h2>
           <p>
-            MoneyAtlas currently provides email-based contact support.
+            MoneyAtlas is operated by {OPERATOR_NAME}. Email is the best way to reach us.
           </p>
-          <div className="rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-md)' }}>
+          <div className="space-y-4 rounded-xl border border-slate-200 bg-white p-5" style={{ boxShadow: 'var(--shadow-md)' }}>
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7fafc] text-[#3182ce]">
+                <Building2 className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-sm text-slate-600">Website operator</p>
+                <p className="text-base font-semibold text-[#1e3a5f]">{OPERATOR_NAME}</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7fafc] text-[#3182ce]">
+                <MapPin className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-sm text-slate-600">Address</p>
+                <p className="text-base font-semibold text-[#1e3a5f]">{OPERATOR_ADDRESS}</p>
+              </div>
+            </div>
             <div className="flex items-start gap-3">
               <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7fafc] text-[#3182ce]">
                 <Mail className="h-5 w-5" />

@@ -27,7 +27,7 @@ export function MortgageAmortizationPage() {
     <CalculatorPageWrapper slug="mortgage-amortization-calculator">
       <CalculatorShell
         title="Mortgage Amortization Calculator"
-        description="View a complete amortization schedule and see how extra payments reduce your loan."
+        description="See how extra payments shorten your payoff time and reduce the total interest you pay."
         inputs={
           <>
             <InputField label="Loan Amount" value={amount} onChange={setAmount} prefix="$" min={0} />

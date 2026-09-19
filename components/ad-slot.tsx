@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 
 interface AdSlotProps {
   format: 'leaderboard' | 'rectangle' | 'mobile-banner';
-  /** AdSense ad unit id (data-ad-slot). Optional while units are being created. */
+  /** AdSense ad unit id (data-ad-slot). Defaults to the site's display unit. */
   slot?: string;
   className?: string;
 }
@@ -21,6 +21,9 @@ const dimensions = {
 };
 
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+
+/** The site's responsive display unit, used by every placement unless one is passed in. */
+const DEFAULT_AD_SLOT = '4160588853';
 
 export function AdSlot({ format, slot, className }: AdSlotProps) {
   const pushed = useRef(false);
@@ -53,7 +56,7 @@ export function AdSlot({ format, slot, className }: AdSlotProps) {
         className="adsbygoogle"
         style={{ display: 'block', width: '100%', minHeight: dim.height }}
         data-ad-client={ADSENSE_CLIENT_ID}
-        data-ad-slot={slot}
+        data-ad-slot={slot ?? DEFAULT_AD_SLOT}
         data-ad-format="auto"
         data-full-width-responsive="true"
       />

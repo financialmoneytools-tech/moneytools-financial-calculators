@@ -17,7 +17,7 @@ export const mortgageContent: Record<string, CalculatorContent> = {
       'It computes the principal and interest portion using the standard amortization formula, converting the annual rate to monthly and the term to a number of months.',
       'Annual property tax and annual home insurance are each divided by twelve to produce their monthly equivalents, and the monthly mortgage insurance figure is added as entered.',
       'The total monthly payment is the sum of all four components. Total payment over the term multiplies that figure by the number of months, so it includes tax and insurance, while total interest counts only the interest on the loan itself.',
-      'The amortization schedule tracks the declining balance month by month and reports accumulated equity alongside it.',
+      'Amortization governs how that principal and interest portion divides over the term. Each payment first covers the interest accrued on the outstanding balance, and the remainder reduces the principal, which is the part that builds your equity in the property. Because the balance is largest at the outset, early payments are dominated by interest and equity accumulates slowly; as the balance falls, a greater share of each payment reaches the principal and equity builds faster.',
     ],
     formula: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]',
     formulaExplanation:

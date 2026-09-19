@@ -157,7 +157,7 @@ export default async function HomePage() {
           {[
             { step: '1', title: 'Choose a Calculator', desc: 'Pick from 20 financial calculators across investment, loans, mortgage, savings, business, and salary categories.' },
             { step: '2', title: 'Enter Your Numbers', desc: 'Input your financial details. Results update in real time as you type — no submit button needed.' },
-            { step: '3', title: 'Get Instant Results', desc: 'See detailed breakdowns, charts, and amortization schedules. Share or export your results.' },
+            { step: '3', title: 'Get Instant Results', desc: 'See the full breakdown of your result, with charts on many calculators and the formula, worked examples, and assumptions explained on the same page.' },
           ].map((item) => (
             <div key={item.step} className="text-center">
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1e3a5f] text-white font-bold text-lg mb-4">

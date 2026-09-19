@@ -28,19 +28,7 @@ export function ProfitMarginPage() {
   ] : [];
 
   return (
-    <CalculatorPageWrapper
-      slug="profit-margin-calculator"
-      formula="Gross Margin = (Revenue - COGS) / Revenue × 100\nOperating Margin = (Gross Profit - OpEx) / Revenue × 100\nNet Margin = Net Profit / Revenue × 100"
-      formulaExplanation="Each margin level shows profitability at different stages: after production costs (gross), after operating costs (operating), and after all expenses (net)."
-      workedExample={`Revenue: $100,000 | COGS: $60,000 | OpEx: $20,000 | Other: $5,000\n\nGross Profit: $40,000 (40% margin)\nOperating Profit: $20,000 (20% margin)\nNet Profit: $15,000 (15% margin)`}
-      whenToUse="Use to analyze business profitability at different levels. Compare margins across periods or against industry benchmarks."
-      assumptions={['Figures represent a single period.', 'All expenses are accounted for in the respective categories.']}
-      commonMistakes={['Confusing markup with margin — they are different calculations.', 'Comparing margins across industries without context.']}
-      faqs={[
-        { question: 'What is a good profit margin?', answer: 'It varies by industry. Software companies may have 20-40% net margins, while retailers might have 2-5%. Compare against your specific industry benchmarks.' },
-        { question: 'What is the difference between gross and net margin?', answer: 'Gross margin only deducts production costs (COGS). Net margin deducts all expenses including operations, overhead, and other costs.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="profit-margin-calculator">
       <CalculatorShell
         title="Profit Margin Calculator"
         description="Calculate gross, operating, and net profit margins from your revenue data."

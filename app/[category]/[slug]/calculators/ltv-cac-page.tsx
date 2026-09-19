@@ -23,19 +23,7 @@ export function LtvCacPage() {
   }, [aov, freq, margin, churn, spend, customers]);
 
   return (
-    <CalculatorPageWrapper
-      slug="ltv-cac-calculator"
-      formula="LTV = (AOV × Frequency × Gross Margin%) / Churn Rate\nCAC = Marketing Spend / New Customers\nRatio = LTV / CAC"
-      formulaExplanation="LTV estimates the total gross profit from a customer over their lifetime. CAC is the average cost to acquire one customer. The ratio shows how efficiently you acquire customers."
-      workedExample={`AOV: $100 | Frequency: 4x/year | Margin: 60% | Churn: 20%\nMarketing: $10,000 | New Customers: 100\n\nLTV = (100 × 4 × 0.60) / 0.20 = $1,200\nCAC = $10,000 / 100 = $100\nLTV:CAC = 12:1 (Healthy)`}
-      whenToUse="Use to evaluate customer acquisition efficiency for subscription businesses, SaaS, e-commerce, or any business with repeat purchases."
-      assumptions={['AOV, frequency, and margin are averages.', 'Churn is annual.', 'All marketing spend is for acquisition.']}
-      commonMistakes={['Using revenue instead of gross profit for LTV.', 'Not including all acquisition costs in CAC.', 'Ignoring that LTV assumptions change over time.']}
-      faqs={[
-        { question: 'What is a good LTV:CAC ratio?', answer: 'A ratio of 3:1 or higher is generally considered healthy. Below 1:1 means you spend more to acquire customers than they generate in profit.' },
-        { question: 'What is payback period?', answer: 'How many months it takes for a customer to generate enough gross profit to cover their acquisition cost.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="ltv-cac-calculator">
       <CalculatorShell
         title="LTV:CAC Calculator"
         description="Calculate customer lifetime value, acquisition cost, and the LTV:CAC ratio."

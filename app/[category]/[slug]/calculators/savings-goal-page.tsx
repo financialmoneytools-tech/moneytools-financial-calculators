@@ -21,18 +21,7 @@ export function SavingsGoalPage() {
   }, [goal, current, rate, years]);
 
   return (
-    <CalculatorPageWrapper
-      slug="savings-goal-calculator"
-      formula="PMT = (FV - PV(1+r)^n) × r / [(1+r)^n - 1]"
-      formulaExplanation="Solves for the required monthly deposit to grow current savings to the goal amount at the given rate over the specified period."
-      workedExample={`Goal: $50,000 | Current: $5,000 | Rate: 5% | Time: 10yr\n\nRequired monthly savings: ~$268/month`}
-      whenToUse="Use when you have a specific savings target (emergency fund, down payment, vacation) and want to know how much to set aside each month."
-      assumptions={['Rate is constant.', 'Contributions are consistent.', 'No withdrawals.']}
-      commonMistakes={['Setting an unrealistically high rate assumption.', 'Not adjusting the goal for inflation if the target is many years away.']}
-      faqs={[
-        { question: 'What if I already have enough?', answer: 'If your current savings plus projected interest already exceed the goal, the calculator shows $0 required monthly savings.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="savings-goal-calculator">
       <CalculatorShell
         title="Savings Goal Calculator"
         description="Find out how much to save each month to reach your financial goal."

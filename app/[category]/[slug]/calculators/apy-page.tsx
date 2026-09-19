@@ -19,19 +19,7 @@ export function ApyPage() {
   }, [apr, freq]);
 
   return (
-    <CalculatorPageWrapper
-      slug="apy-calculator"
-      formula="APY = (1 + APR/n)^n - 1"
-      formulaExplanation="Where APR = stated annual rate, n = compounding periods per year. APY represents the true annual yield including the effect of compounding."
-      workedExample={`APR: 5% | Compounding: Monthly\n\nAPY = (1 + 0.05/12)^12 - 1 = 5.116%`}
-      whenToUse="Use to compare savings accounts or CDs that compound at different frequencies. APY gives the true comparable rate."
-      assumptions={['Rate is fixed for the year.', 'No fees or early withdrawal penalties.']}
-      commonMistakes={['Comparing APR across accounts without converting to APY first.', 'Assuming APR and APY are the same — they differ whenever compounding frequency is greater than 1.']}
-      faqs={[
-        { question: 'Is APY always higher than APR?', answer: 'Yes, whenever interest compounds more than once per year. With annual compounding, APY equals APR.' },
-        { question: 'Which compounding frequency is best?', answer: 'Daily compounding yields the most, but the difference from monthly is very small. More important is the stated APR/APY itself.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="apy-calculator">
       <CalculatorShell
         title="APY Calculator"
         description="Convert between APR and APY, and compare compounding frequencies."

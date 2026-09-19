@@ -20,19 +20,7 @@ export function CagrPage() {
   }, [startVal, endVal, years]);
 
   return (
-    <CalculatorPageWrapper
-      slug="cagr-calculator"
-      formula="CAGR = (End Value / Start Value)^(1/Years) - 1"
-      formulaExplanation="CAGR represents the constant annual growth rate that would take the start value to the end value over the specified period. It smooths out volatility into a single rate."
-      workedExample={`Start Value: $10,000\nEnd Value: $25,000\nPeriod: 5 years\n\nCAGR = (25000/10000)^(1/5) - 1 = 2.5^0.2 - 1 = 0.2011 = 20.11%`}
-      whenToUse="Use CAGR when you need a single annualized growth rate to describe historical performance. It is widely used for comparing investment returns, revenue growth, and other metrics over different time spans."
-      assumptions={['Growth is smoothed to a constant rate — actual year-to-year returns may vary significantly.', 'No cash flows (contributions or withdrawals) during the period.']}
-      commonMistakes={['Assuming CAGR means the investment grew by that percentage every year — it is an average that accounts for compounding.', 'Using CAGR for short periods (under 1 year) where it may not be meaningful.']}
-      faqs={[
-        { question: 'What is CAGR?', answer: 'Compound Annual Growth Rate (CAGR) is the annualized rate of return that takes an investment from its beginning value to its ending value, assuming profits are reinvested each year.' },
-        { question: 'Is CAGR the same as average return?', answer: 'No. A simple average of annual returns ignores compounding. CAGR accounts for the compounding effect, giving a more accurate picture of long-term growth.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="cagr-calculator">
       <CalculatorShell
         title="CAGR Calculator"
         description="Find the compound annual growth rate between two values over a time period."

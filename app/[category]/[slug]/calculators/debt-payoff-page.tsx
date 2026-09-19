@@ -51,19 +51,7 @@ export function DebtPayoffPage() {
   }, [debts, extra, strategy]);
 
   return (
-    <CalculatorPageWrapper
-      slug="debt-payoff-calculator"
-      formula="Avalanche: Pay minimums on all debts, apply extra to highest-rate debt first.\nSnowball: Pay minimums on all debts, apply extra to lowest-balance debt first."
-      formulaExplanation="Both methods pay off all debts; avalanche minimizes total interest while snowball provides motivational quick wins by eliminating small balances first."
-      workedExample={`Debts:\n- Credit Card: $5,000 at 18%, $150 min\n- Car Loan: $10,000 at 6%, $300 min\nExtra payment: $200/month\n\nAvalanche targets the credit card first (highest rate), then redirects all freed payments to the car loan.`}
-      whenToUse="Use this calculator when you have multiple debts and want to create a strategic payoff plan. Compare both methods to choose what works best for your financial and psychological needs."
-      assumptions={['Minimum payments and interest rates remain constant.', 'Extra payment is applied consistently every month.', 'Freed-up minimum payments from paid-off debts are redirected.']}
-      commonMistakes={['Stopping extra payments after paying off one debt — redirect freed payments to the next debt.', 'Not accounting for minimum payments that don\'t cover interest on high-rate debts.']}
-      faqs={[
-        { question: 'Which method saves more money?', answer: 'The avalanche method (highest rate first) always saves more in total interest. The snowball method (lowest balance first) may keep motivation higher by providing quicker wins.' },
-        { question: 'Should I use avalanche or snowball?', answer: 'If minimizing interest cost is your priority, use avalanche. If you need psychological wins to stay motivated, snowball can be more effective in practice.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="debt-payoff-calculator">
       <CalculatorShell
         title="Debt Payoff Calculator"
         description="Compare avalanche and snowball methods to find the fastest debt payoff strategy."

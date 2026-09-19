@@ -18,19 +18,7 @@ export function MarkupPage() {
   }, [cost, selling]);
 
   return (
-    <CalculatorPageWrapper
-      slug="markup-calculator"
-      formula="Markup = (Selling Price - Cost) / Cost × 100\nMargin = (Selling Price - Cost) / Selling Price × 100"
-      formulaExplanation="Markup is based on cost; margin is based on selling price. A 50% markup is equivalent to a 33.3% margin."
-      workedExample={`Cost: $50 | Selling Price: $75\n\nMarkup = ($75 - $50) / $50 × 100 = 50%\nMargin = ($75 - $50) / $75 × 100 = 33.3%\nProfit: $25`}
-      whenToUse="Use to set prices, understand the relationship between markup and margin, or convert between the two."
-      assumptions={['Single product pricing.', 'No volume discounts or variable pricing.']}
-      commonMistakes={['Confusing markup with margin — a 50% markup is NOT a 50% margin.', 'Setting markup too low to cover overhead costs.']}
-      faqs={[
-        { question: 'What is the difference between markup and margin?', answer: 'Markup is the percentage increase over cost. Margin is the percentage of the selling price that is profit. They use different denominators.' },
-        { question: 'How do I convert markup to margin?', answer: 'Margin = Markup / (1 + Markup). For example, 50% markup = 50 / 150 = 33.3% margin.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="markup-calculator">
       <CalculatorShell
         title="Markup Calculator"
         description="Calculate markup percentage, profit margin, and selling price from cost."

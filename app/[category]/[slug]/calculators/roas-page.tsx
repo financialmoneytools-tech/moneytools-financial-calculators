@@ -19,19 +19,7 @@ export function RoasPage() {
   }, [spend, revenue, margin]);
 
   return (
-    <CalculatorPageWrapper
-      slug="roas-calculator"
-      formula="ROAS = Revenue / Ad Spend\nBreak-Even ROAS = 1 / Gross Margin %"
-      formulaExplanation="ROAS measures revenue generated per dollar of ad spend. Break-even ROAS tells you the minimum ROAS needed to cover product costs."
-      workedExample={`Ad Spend: $1,000 | Revenue: $4,000 | Gross Margin: 50%\n\nROAS: 4.0x\nBreak-Even ROAS: 2.0x\nProfit: $4,000 × 50% - $1,000 = $1,000\nROI: 100%`}
-      whenToUse="Use to evaluate the profitability of advertising campaigns. Compare ROAS against your break-even ROAS to determine if ads are profitable."
-      assumptions={['All revenue is attributable to the ad spend.', 'Gross margin is consistent.']}
-      commonMistakes={['Looking at ROAS without considering gross margin.', 'Not accounting for customer acquisition costs beyond ad spend.']}
-      faqs={[
-        { question: 'What is a good ROAS?', answer: 'It depends on your gross margin. A ROAS above your break-even ROAS is profitable. For 50% margins, a ROAS above 2x is profitable.' },
-        { question: 'How is ROAS different from ROI?', answer: 'ROAS measures revenue per ad dollar. ROI measures profit per ad dollar, accounting for product costs.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="roas-calculator">
       <CalculatorShell
         title="ROAS Calculator"
         description="Calculate return on ad spend and determine if your advertising is profitable."

@@ -1,7 +1,49 @@
+import { calculatorContent } from './calculator-content';
+
 export interface CalculatorSeo {
   title: string;
   description: string;
   keywords: string[];
+}
+
+/** A single question/answer pair. Also feeds the FAQPage JSON-LD. */
+export interface CalculatorFaq {
+  question: string;
+  answer: string;
+}
+
+/** A fully worked numeric example, calculated with the matching engine in lib/calculators. */
+export interface CalculatorWorkedExample {
+  title: string;
+  scenario: string;
+  steps: string[];
+  result: string;
+  takeaway: string;
+}
+
+/** A named driver that materially changes the calculator's output. */
+export interface CalculatorFactor {
+  title: string;
+  detail: string;
+}
+
+/** Long-form educational content rendered by CalculatorPageWrapper. */
+export interface CalculatorContent {
+  slug: string;
+  /** Detailed introduction paragraphs shown directly under the calculator. */
+  longIntro: string[];
+  /** Plain-language explanation of what the engine does, step by step. */
+  howItWorks: string[];
+  formula: string;
+  formulaExplanation: string;
+  /** At least two worked examples. */
+  workedExamples: CalculatorWorkedExample[];
+  whenToUse: string[];
+  factors: CalculatorFactor[];
+  assumptions: string[];
+  commonMistakes: string[];
+  /** Five to six calculator-specific questions. */
+  faqs: CalculatorFaq[];
 }
 
 export interface CalculatorEntry {
@@ -281,4 +323,8 @@ export function getRelatedCalculators(slug: string): CalculatorEntry[] {
   const calc = getCalculatorBySlug(slug);
   if (!calc) return [];
   return (calc.relatedTools ?? []).map((s: string) => getCalculatorBySlug(s)).filter(Boolean) as CalculatorEntry[];
+}
+
+export function getCalculatorContent(slug: string): CalculatorContent | undefined {
+  return calculatorContent[slug];
 }

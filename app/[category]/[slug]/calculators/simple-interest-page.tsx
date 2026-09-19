@@ -27,19 +27,7 @@ export function SimpleInterestPage() {
   }));
 
   return (
-    <CalculatorPageWrapper
-      slug="simple-interest-calculator"
-      formula="A = P(1 + rt) &nbsp;|&nbsp; Interest = P × r × t"
-      formulaExplanation="Where P = principal, r = annual rate (decimal), t = time in years. Unlike compound interest, simple interest is calculated only on the original principal."
-      workedExample={`Principal: $10,000\nRate: 5% per year\nTime: 3 years\n\nInterest = $10,000 × 0.05 × 3 = $1,500\nTotal: $10,000 + $1,500 = $11,500`}
-      whenToUse="Use simple interest for short-term loans, auto loans (simple interest type), and scenarios where interest does not compound."
-      assumptions={['Interest rate is constant.', 'Interest does not compound.', 'No fees or taxes.']}
-      commonMistakes={['Using simple interest for long-term projections where compound interest applies.', 'Confusing simple interest with compound interest — compounding always yields more over time.']}
-      faqs={[
-        { question: 'When is simple interest used in real life?', answer: 'Simple interest is common in auto loans, some personal loans, and short-term borrowing. Savings accounts and most investments use compound interest.' },
-        { question: 'Is simple interest always less than compound interest?', answer: 'For the same rate and time period (>1 compounding period), yes. Compound interest earns interest on interest, while simple interest is calculated only on the original amount.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="simple-interest-calculator">
       <CalculatorShell
         title="Simple Interest Calculator"
         description="Calculate interest earned using the simple interest formula."

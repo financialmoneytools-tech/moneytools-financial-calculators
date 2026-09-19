@@ -36,29 +36,7 @@ export function InvestmentPage() {
   }));
 
   return (
-    <CalculatorPageWrapper
-      slug="investment-calculator"
-      formula="FV = PV(1+r)^n + PMT × [(1+r)^n - 1] / r"
-      formulaExplanation="Where PV = initial investment, r = monthly rate, n = total months, PMT = monthly contribution. Inflation adjustment divides the nominal future value by (1 + inflation)^years."
-      workedExample={`Initial Investment: $10,000\nMonthly Contribution: $500\nAnnual Return: 8%\nTime: 20 years\nInflation: 3%\n\nNominal Future Value: ~$344,000\nTotal Invested: $130,000\nInflation-Adjusted Value: ~$190,000`}
-      whenToUse="Use this calculator to project long-term investment growth. It is well suited for retirement planning, college savings, or any scenario where you want to understand the real (inflation-adjusted) value of future wealth."
-      assumptions={[
-        'Returns are constant and compounded monthly.',
-        'Contributions are made at the same time each month.',
-        'Inflation rate is constant over the entire period.',
-        'No taxes, fees, or withdrawals.',
-      ]}
-      commonMistakes={[
-        'Using nominal returns without considering inflation can overstate purchasing power.',
-        'Past returns do not guarantee future performance.',
-        'Ignoring investment fees, which can significantly reduce long-term returns.',
-      ]}
-      faqs={[
-        { question: 'What is inflation-adjusted value?', answer: 'Inflation-adjusted value shows what your future money would be worth in today\'s purchasing power. $100,000 in 20 years will buy less than $100,000 today.' },
-        { question: 'What annual return should I use?', answer: 'Historical stock market returns have averaged roughly 7-10% nominally. Use conservative estimates for planning. The calculator does not endorse any specific expected return.' },
-        { question: 'Does this account for taxes?', answer: 'No. Returns shown are pre-tax. Actual returns depend on your account type and tax situation.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="investment-calculator">
       <CalculatorShell
         title="Investment Calculator"
         description="Project the future value of investments with inflation-adjusted returns."

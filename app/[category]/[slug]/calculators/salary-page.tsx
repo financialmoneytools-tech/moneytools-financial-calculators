@@ -32,20 +32,7 @@ export function SalaryPage() {
   ];
 
   return (
-    <CalculatorPageWrapper
-      slug="salary-calculator"
-      formula="Annual = Hourly × Hours/Week × Weeks/Year\nHourly = Annual / (Hours/Week × Weeks/Year)"
-      formulaExplanation="Conversions use standard work year assumptions. Daily assumes hours/week ÷ 8 work days per week. Semi-monthly = 24 pay periods per year."
-      workedExample={`Annual Salary: $52,000 | 40 hrs/week | 52 weeks/year\n\nHourly: $25.00\nDaily: $200.00\nWeekly: $1,000.00\nBi-Weekly: $2,000.00\nSemi-Monthly: $2,166.67\nMonthly: $4,333.33`}
-      whenToUse="Use when comparing job offers with different pay structures, converting between hourly and salaried compensation, or budgeting based on pay frequency."
-      assumptions={['Consistent hours worked per week.', 'All figures are gross (pre-tax).', 'Daily rate assumes standard work hours.', 'No overtime, bonuses, or benefits included.']}
-      commonMistakes={['Forgetting that gross salary differs from take-home pay after taxes.', 'Not adjusting hours for part-time work.', 'Ignoring the value of benefits (health insurance, retirement matching, PTO) when comparing offers.']}
-      faqs={[
-        { question: 'Does this include taxes?', answer: 'No. All amounts shown are gross (pre-tax). Your take-home pay will be lower after federal, state, and local taxes, plus deductions.' },
-        { question: 'What about overtime?', answer: 'This calculator assumes regular hours only. Overtime is typically paid at 1.5x the hourly rate in many jurisdictions.' },
-        { question: 'How is daily rate calculated?', answer: 'Daily rate = Weekly rate / work days per week, where work days = hours per week / 8.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="salary-calculator">
       <CalculatorShell
         title="Salary Calculator"
         description="Convert salary between hourly, weekly, monthly, and annual pay periods. All results are gross (pre-tax)."

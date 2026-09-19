@@ -24,18 +24,7 @@ export function FutureValuePage() {
   }, [pv, rate, years, pmt, freq, timing]);
 
   return (
-    <CalculatorPageWrapper
-      slug="future-value-calculator"
-      formula="FV = PV × (1+r)^n + PMT × [(1+r)^n - 1] / r"
-      formulaExplanation="For beginning-of-period payments, multiply the annuity portion by (1+r). r = rate per period, n = total periods."
-      workedExample={`Present Value: $10,000 | Rate: 6% | Years: 10\nMonthly payment: $200 (end of period)\n\nFV of lump sum: ~$18,194\nFV of payments: ~$32,776\nTotal: ~$50,970`}
-      whenToUse="Use when you want to know the future value of current assets plus periodic investments over time."
-      assumptions={['Constant rate.', 'Regular payments.', 'No taxes or fees.']}
-      commonMistakes={['Confusing payment frequency with compounding frequency.', 'Not matching payment timing (beginning vs end of period) to your actual situation.']}
-      faqs={[
-        { question: 'What is the time value of money?', answer: 'Money today is worth more than the same amount in the future due to its earning potential. Future value calculations quantify this difference.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="future-value-calculator">
       <CalculatorShell
         title="Future Value Calculator"
         description="Calculate the future value of an investment or savings plan with periodic payments."

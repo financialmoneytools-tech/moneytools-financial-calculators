@@ -3,7 +3,7 @@ import path from 'path';
 
 export default defineConfig({
   test: {
-    include: ['lib/calculators/__tests__/**/*.test.ts'],
+    include: ['lib/calculators/__tests__/**/*.test.ts', 'data/__tests__/**/*.test.ts'],
     environment: 'node',
   },
   resolve: {

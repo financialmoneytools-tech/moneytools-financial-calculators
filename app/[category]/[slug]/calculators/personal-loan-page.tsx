@@ -21,19 +21,7 @@ export function PersonalLoanPage() {
   }, [amount, rate, months, fee]);
 
   return (
-    <CalculatorPageWrapper
-      slug="personal-loan-calculator"
-      formula="M = P × [r(1+r)^n] / [(1+r)^n - 1]"
-      formulaExplanation="Same as a standard loan formula. The effective APR is calculated by finding the rate that makes the present value of payments equal to the net proceeds (loan amount minus origination fee)."
-      workedExample={`Loan: $15,000 | Rate: 8% | Term: 36 months | Fee: 3%\n\nMonthly payment: $470.05\nOrigination fee: $450\nNet proceeds: $14,550\nEffective APR: ~9.9% (higher than stated rate due to fee)`}
-      whenToUse="Use when comparing personal loan offers from different lenders. The effective APR accounts for origination fees, giving a true cost comparison."
-      assumptions={['Fixed rate.', 'Origination fee deducted from proceeds upfront.', 'No prepayment penalties.']}
-      commonMistakes={['Comparing loans by interest rate alone — always check the effective APR including fees.', 'Not accounting for the origination fee reducing your actual loan proceeds.']}
-      faqs={[
-        { question: 'What is an origination fee?', answer: 'A one-time fee charged by the lender, typically 1-8% of the loan amount, deducted from your loan proceeds before disbursement.' },
-        { question: 'Why is effective APR higher than the stated rate?', answer: 'Because you receive less money (after the fee is deducted) but make payments on the full loan amount. This makes the true cost of borrowing higher.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="personal-loan-calculator">
       <CalculatorShell
         title="Personal Loan Calculator"
         description="Estimate personal loan payments including origination fees and effective APR."

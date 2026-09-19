@@ -42,30 +42,7 @@ export function CompoundInterestPage() {
   }));
 
   return (
-    <CalculatorPageWrapper
-      slug="compound-interest-calculator"
-      formula="A = P(1 + r/n)^(nt) + PMT × [(1 + r/n)^(nt) - 1] / (r/n)"
-      formulaExplanation="Where P = principal, r = annual rate (decimal), n = compounding frequency per year, t = years, PMT = contribution per period. For beginning-of-period contributions, the annuity portion is multiplied by (1 + r/n)."
-      workedExample={`Principal: $10,000\nAnnual Rate: 5%\nCompounding: Monthly (12x/year)\nTime: 10 years\nNo additional contributions\n\nA = 10,000 × (1 + 0.05/12)^(12×10)\nA = 10,000 × (1.004167)^120\nA = 10,000 × 1.64701\nA = $16,470.09\n\nTotal interest earned: $6,470.09`}
-      whenToUse="Use this calculator when you want to see how a lump sum or regular savings grow over time with compound interest. It is ideal for savings accounts, CDs, and general investment projections."
-      assumptions={[
-        'Interest rate remains constant for the entire period.',
-        'Contributions are made at regular intervals (monthly, converted to match compounding frequency).',
-        'Interest is reinvested and compounds at the specified frequency.',
-        'No withdrawals, taxes, or fees are accounted for.',
-      ]}
-      commonMistakes={[
-        'Confusing APR with APY — this calculator uses the stated annual rate (APR) and applies compounding.',
-        'Forgetting that more frequent compounding (daily vs. annually) produces slightly higher returns.',
-        'Not accounting for inflation when projecting long-term growth.',
-      ]}
-      faqs={[
-        { question: 'What is compound interest?', answer: 'Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. Unlike simple interest, your earnings generate their own earnings over time.' },
-        { question: 'How does compounding frequency affect returns?', answer: 'More frequent compounding produces slightly higher returns. For example, monthly compounding yields more than annual compounding at the same stated rate, because interest earned each month begins earning interest in subsequent months.' },
-        { question: 'What is the difference between APR and APY?', answer: 'APR is the stated annual rate without accounting for compounding. APY (Annual Percentage Yield) is the effective annual rate after compounding. A 5% APR compounded monthly produces an APY of about 5.12%.' },
-        { question: 'Does this calculator account for taxes?', answer: 'No. This calculator shows gross (pre-tax) returns. Actual returns after taxes will be lower depending on your tax situation and the type of account.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="compound-interest-calculator">
       <CalculatorShell
         title="Compound Interest Calculator"
         description="See how your money grows over time with compound interest and regular contributions."

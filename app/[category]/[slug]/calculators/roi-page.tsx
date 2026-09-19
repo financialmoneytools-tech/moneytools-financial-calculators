@@ -24,20 +24,7 @@ export function RoiPage() {
   }, [investment, finalValue, years]);
 
   return (
-    <CalculatorPageWrapper
-      slug="roi-calculator"
-      formula="ROI = (Net Profit / Cost of Investment) × 100"
-      formulaExplanation="Net Profit = Final Value - Initial Investment. Annualized ROI = ((Final Value / Initial Investment)^(1/years) - 1) × 100, which normalizes returns over time."
-      workedExample={`Investment: $10,000\nFinal Value: $15,000\nTime: 3 years\n\nROI = ($15,000 - $10,000) / $10,000 × 100 = 50%\nAnnualized ROI = (15000/10000)^(1/3) - 1 = 14.47%`}
-      whenToUse="Use this calculator to evaluate the return on any investment, project, or business decision. Annualized ROI is especially useful when comparing investments held for different time periods."
-      assumptions={['Returns are realized (not unrealized gains).', 'No additional costs or fees beyond the initial investment.', 'Time period is measured in years for annualization.']}
-      commonMistakes={['Comparing ROI of investments with different time horizons without annualizing.', 'Ignoring fees, taxes, or opportunity costs.', 'Using ROI for investments with irregular cash flows (use IRR instead).']}
-      faqs={[
-        { question: 'What is a good ROI?', answer: 'There is no universal answer. It depends on the risk, time period, and alternatives available. Compare ROI against relevant benchmarks for your specific context.' },
-        { question: 'What is annualized ROI?', answer: 'Annualized ROI normalizes the return to a per-year basis, making it possible to compare investments held for different time periods.' },
-        { question: 'Is ROI the same as CAGR?', answer: 'Annualized ROI and CAGR use the same formula. ROI can also be expressed as a total (non-annualized) percentage.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="roi-calculator">
       <CalculatorShell
         title="ROI Calculator"
         description="Calculate the return on investment and annualized ROI for any investment."

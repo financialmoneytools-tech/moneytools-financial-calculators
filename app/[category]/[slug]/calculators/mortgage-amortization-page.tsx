@@ -24,19 +24,7 @@ export function MortgageAmortizationPage() {
   }, [amount, rate, term, extra]);
 
   return (
-    <CalculatorPageWrapper
-      slug="mortgage-amortization-calculator"
-      formula="Standard amortization with extra payment applied to principal each month."
-      formulaExplanation="Extra payments go directly to principal reduction, accelerating payoff and reducing total interest."
-      workedExample={`Loan: $200,000 | Rate: 4% | Term: 30yr | Extra: $200/mo\n\nRegular payment: $954.83/mo\nWith $200 extra: pays off ~8 years early, saves ~$47,000 in interest.`}
-      whenToUse="Use to see a full amortization schedule and to model the impact of making extra payments on your mortgage."
-      assumptions={['Fixed rate.', 'Extra payments applied monthly.', 'No prepayment penalties.']}
-      commonMistakes={['Assuming extra payments must be large — even small consistent extra payments save significant interest over time.', 'Not verifying that your lender applies extra payments to principal.']}
-      faqs={[
-        { question: 'How much can I save with extra payments?', answer: 'It depends on your rate, balance, and extra amount. Even $100/month extra on a $200,000 mortgage at 4% can save tens of thousands in interest and years off the loan.' },
-        { question: 'Is it better to make extra payments or invest?', answer: 'Compare your mortgage rate to expected investment returns after taxes. If your mortgage rate is lower than your expected after-tax return, investing may yield more, but this depends on your risk tolerance and financial situation.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="mortgage-amortization-calculator">
       <CalculatorShell
         title="Mortgage Amortization Calculator"
         description="View a complete amortization schedule and see how extra payments reduce your loan."

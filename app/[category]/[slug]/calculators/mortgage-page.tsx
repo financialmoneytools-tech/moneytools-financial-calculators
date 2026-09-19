@@ -38,19 +38,7 @@ export function MortgagePage() {
   const COLORS = ['#3182ce', '#38a169', '#d69e2e', '#e53e3e'];
 
   return (
-    <CalculatorPageWrapper
-      slug="mortgage-calculator"
-      formula="M = P × [r(1+r)^n] / [(1+r)^n - 1]"
-      formulaExplanation="Where P = loan amount (home price - down payment), r = monthly rate, n = total months. Total monthly payment adds property tax, insurance, and PMI."
-      workedExample={`Home Price: $300,000 | Down: 20% ($60,000) | Loan: $240,000\nRate: 6% | Term: 30yr | Tax: $3,600/yr | Insurance: $1,200/yr\n\nP&I: $1,438.92/mo\nTax: $300/mo | Insurance: $100/mo\nTotal: $1,838.92/mo`}
-      whenToUse="Use when planning a home purchase to understand your full monthly housing cost, including principal, interest, taxes, insurance, and PMI."
-      assumptions={['Fixed interest rate.', 'Property tax and insurance are estimated annual amounts.', 'PMI applies if down payment < 20%.']}
-      commonMistakes={['Only looking at principal and interest — taxes and insurance add significant cost.', 'Forgetting PMI when putting less than 20% down.', 'Not factoring in maintenance, HOA fees, and other homeownership costs.']}
-      faqs={[
-        { question: 'What is PMI?', answer: 'Private Mortgage Insurance is typically required when your down payment is less than 20%. It protects the lender (not you) if you default. It can be removed once you reach 20% equity.' },
-        { question: 'Should I put 20% down?', answer: 'A 20% down payment eliminates PMI and reduces your loan amount, but it is not always required. Weigh the savings against the opportunity cost of tying up capital.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="mortgage-calculator">
       <CalculatorShell
         title="Mortgage Calculator"
         description="Estimate monthly mortgage payments including taxes, insurance, and PMI."

@@ -26,19 +26,7 @@ export function SavingsPage() {
   }));
 
   return (
-    <CalculatorPageWrapper
-      slug="savings-calculator"
-      formula="FV = PV(1+r)^n + PMT × [(1+r)^n - 1] / r"
-      formulaExplanation="Where PV = initial deposit, r = monthly rate, n = total months, PMT = monthly contribution."
-      workedExample={`Initial: $1,000 | Monthly: $200 | Rate: 5% | Years: 10\n\nTotal deposited: $25,000\nFinal balance: ~$32,364\nInterest earned: ~$7,364`}
-      whenToUse="Use to project how regular savings deposits grow over time with compound interest."
-      assumptions={['Rate is constant and compounds monthly.', 'Deposits are made consistently.', 'No withdrawals, taxes, or fees.']}
-      commonMistakes={['Overestimating the savings rate — use your actual APY.', 'Not accounting for inflation\'s effect on purchasing power.']}
-      faqs={[
-        { question: 'What rate should I use?', answer: 'Use the APY offered by your savings account or CD. High-yield savings accounts may offer higher rates than traditional accounts.' },
-        { question: 'How accurate is this?', answer: 'This gives a close estimate for fixed-rate accounts. Actual results may vary slightly due to the exact timing of deposits and compounding.' },
-      ]}
-    >
+    <CalculatorPageWrapper slug="savings-calculator">
       <CalculatorShell
         title="Savings Calculator"
         description="Calculate how your savings grow with regular deposits and compound interest."
